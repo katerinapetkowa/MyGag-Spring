@@ -1,6 +1,5 @@
 package com.myGag.controller;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -31,4 +30,12 @@ public String login(@RequestParam("username") String username, @RequestParam("pa
 	response.setHeader("Cache-Control", "no-cache"); 
 	return jsp;
 }
+
+
+
+@RequestMapping(value = "/", method = RequestMethod.GET)
+public String welcome() {
+	return "index";
+}
+
 }

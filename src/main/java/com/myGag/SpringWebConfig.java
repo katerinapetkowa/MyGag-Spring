@@ -20,7 +20,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.example")
+@ComponentScan("com.myGag")
 public class SpringWebConfig extends WebMvcConfigurerAdapter {
 	
     @Override
