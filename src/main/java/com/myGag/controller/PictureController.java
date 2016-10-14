@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.myGag.model.Post;
+import com.myGag.model.PostsManager;
 import com.myGag.model.User;
 import com.myGag.model.UsersManager;
 
@@ -22,7 +24,7 @@ public class PictureController {
 	
 	
 	public static void returnProfilePic(User u, HttpServletResponse response) throws IOException {
-		File profilePicFile = new File("C:\\Users\\Katerina Petkova\\workspace\\MyProject with Upload image\\MyGagSpring\\userProfilePics", u.getProfilePicture());
+		File profilePicFile = new File("D:\\MyGagPictures\\userProfilePics", u.getProfilePicture());
 		response.setContentLength((int) profilePicFile.length());
 		String contentType = "image/"
 				+ profilePicFile.getName().split("[.]")[profilePicFile.getName().split("[.]").length - 1];
@@ -46,6 +48,23 @@ public class PictureController {
 			User user = UsersManager.getInstance().getUser(logged);
 			returnProfilePic(user, response);
 		}
+	}
+	
+	@RequestMapping(value = "/postPicture", method = RequestMethod.GET)
+	public void post(@RequestParam(value = "postId") String postId, HttpServletResponse response) throws IOException {
+		if (PostsManager.getInstance().getAllPosts().containsKey(Integer.parseInt(postId))) {
+			Post post = PostsManager.getInstance().getAllPosts().get(Integer.parseInt(postId));
+			returnPic(post, response);
+		}
+	}
+
+	public static void returnPic(Post post, HttpServletResponse response) throws IOException {
+		File postPicFile = new File("D:\\MyGagPictures\\postPics", post.getPicture());
+		response.setContentLength((int)postPicFile.length());
+		String contentType = "image/"+postPicFile.getName().split("[.]")[postPicFile.getName().split("[.]").length-1];
+		response.setContentType(contentType);
+		OutputStream out = response.getOutputStream();
+		Files.copy(postPicFile.toPath(), out);
 	}
 
 }

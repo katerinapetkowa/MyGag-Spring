@@ -34,7 +34,7 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 	}
 
  
-    private static final String LOCATION = "C:\\Users\\Katerina Petkova\\workspace\\MyProject with Upload image\\MyGagSpring"; // Temporary location where files will be stored
+    private static final String LOCATION = "D:\\MyGagPictures"; // Temporary location where files will be stored
  
     private static final long MAX_FILE_SIZE = 5242880; // 5MB : Max file size.
                                                         // Beyond that size spring will throw exception.

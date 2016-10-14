@@ -245,7 +245,7 @@
              
                         <li> <div class="dropdown"> 
  							 <img class="dropbtn"  
-					src="PictureServlet?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt="" height="55" width="55">  
+					src="profilePicture?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt="" height="55" width="55">  
   									<div class="dropdown-content"> 
 	    								<a href="/MyGag/Profile.jsp">My Profile</a> 
  	    								<a href="/MyGag/ChangeSettings.jsp">Settings</a> 

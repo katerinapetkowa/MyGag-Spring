@@ -24,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.myGag.model.RegisterEmail;
 import com.myGag.model.UsersManager;
 
+
 @Controller
 @MultipartConfig(maxFileSize = 200000000)
 public class UserController {
@@ -46,10 +47,19 @@ public class UserController {
 		}
 		response.setHeader("Pragma", "No-cache");
 		response.setDateHeader("Expires", 0);
-		response.setHeader("Cache-Control", "no-cache");
+		response.setHeader("Cache-Control",  "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0");
 		return jsp;
 	}
 
+	@RequestMapping(value = "/logOut", method = RequestMethod.GET)
+	protected String logOut(HttpSession session, HttpServletResponse response) {
+		session.invalidate();
+		response.setHeader("Pragma", "No-cache"); 
+		response.setDateHeader("Expires", 0); 
+		response.setHeader("Cache-Control",  "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0"); 
+		return "index";
+	}
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcome() {
 		return "index";
@@ -57,7 +67,7 @@ public class UserController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String register(@RequestParam("name") String name, @RequestParam("username") String username,
-			//@RequestParam("password") String password, @RequestParam("password2") String password2,
+			@RequestParam("password") String password, @RequestParam("password2") String password2,
 			@RequestParam("email") String email, @RequestParam("profilePicture") MultipartFile profilePicture) throws IOException {
 		InputStream profilePicStream = null;
 		try {
@@ -72,7 +82,7 @@ public class UserController {
 		String jsp = "";
 
 		if (((!UsersManager.getInstance().getAllUsers().containsKey("username")) && mattcher.matches()) && (!email.isEmpty())
-			//	&& (!password.isEmpty()) && (password.equals(password2))
+				&& (!password.isEmpty()) && (password.equals(password2))
 				&& (!name.isEmpty()) && (name.trim().length() >= 3)) {
 			File dir = new File("userProfilePics");
 			if (!dir.exists()) {
@@ -83,13 +93,13 @@ public class UserController {
 			System.out.println("abs. path = " + profilePicFile.getAbsolutePath());
 			Files.copy(profilePicStream, profilePicFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
 			
-			SecureRandom random = new SecureRandom();
-			String generatedPassword = new BigInteger(30, random).toString(32);
-			System.out.println("generated pass: " + generatedPassword);
-			String encryptedPassword = UsersManager.getInstance().passwordToMD5(generatedPassword);
-			
-			RegisterEmail registerEmail = new RegisterEmail(email, generatedPassword);
-			registerEmail.start();
+//			SecureRandom random = new SecureRandom();
+//			String generatedPassword = new BigInteger(30, random).toString(32);
+//			System.out.println("generated pass: " + generatedPassword);
+			//String encryptedPassword = UsersManager.getInstance().passwordToMD5(generatedPassword);
+			String encryptedPassword = UsersManager.getInstance().passwordToMD5(password2);
+			//RegisterEmail registerEmail = new RegisterEmail(email, generatedPassword);
+			//registerEmail.start();
 			
 			UsersManager.getInstance().registerUser(username, name, encryptedPassword, email, profilePicFile.getName());
 			
