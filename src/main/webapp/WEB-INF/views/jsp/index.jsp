@@ -57,7 +57,7 @@
       <div class="tab-content">
         <form class ="login" action="LoginServlet" method="POST">  
 <!--         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span> -->
-          <h1>Please log in!</h1>
+          <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Please log in!</h1>
           
           
           
@@ -81,7 +81,7 @@
             <input type="password" name="password" maxlength="30" required autocomplete="off"/>
           </div>
           
-          <button class="button button-block" type="submit">Log in</button>
+          <button class="button button-block"  type="submit">Log in</button>
          <br>
 <!--           <button class="button button-block" type="submit" onclick="window.location.href='/MyGag/register.html'"> Register</button> -->
           
@@ -109,7 +109,7 @@
       <div class="tab-content">
         <form class ="signup" action="RegisterServlet" method="POST" enctype="multipart/form-data">  
         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-          <h1>Sign up</h1>
+          <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Sign up</h1>
           
           
           
@@ -275,7 +275,7 @@
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
-                <h1 class="page-header">
+                <h1 style = "font-family:sans-serif" class="page-header">
                     Welcome to our site MyGag!
                     
                 </h1>
