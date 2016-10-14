@@ -81,14 +81,15 @@ public class UserController {
 		Matcher mattcher = pattern.matcher(email);
 		String jsp = "";
 
-		if (((!UsersManager.getInstance().getAllUsers().containsKey("username")) && mattcher.matches()) && (!email.isEmpty())
-				&& (!password.isEmpty()) && (password.equals(password2))
-				&& (!name.isEmpty()) && (name.trim().length() >= 3)) {
-			File dir = new File("userProfilePics");
+//		if (((!UsersManager.getInstance().getAllUsers().containsKey("username")) && mattcher.matches()) && (!email.isEmpty())
+//				&& (!password.isEmpty()) && (password.equals(password2))
+//				&& (!name.isEmpty()) && (name.trim().length() >= 3)) {
+		if(!UsersManager.getInstance().getAllUsers().containsKey("username")){
+			File dir = new File("D:\\MyGagPictures\\userProfilePics");
 			if (!dir.exists()) {
 				dir.mkdirs();
 			}
-			File profilePicFile = new File(dir, name + "-profile-pic." + profilePicture.getContentType().split("/")[1]);
+			File profilePicFile = new File(dir, username + "-profile-pic." + profilePicture.getContentType().split("/")[1]);
 			System.out.println("Try to save file with name: " + profilePicFile.getName());
 			System.out.println("abs. path = " + profilePicFile.getAbsolutePath());
 			Files.copy(profilePicStream, profilePicFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
