@@ -41,7 +41,7 @@ public class PictureController {
 			User user = UsersManager.getInstance().getUser(username);
 			returnProfilePic(user, response);
 		}
-		String logged = (String) session.getAttribute("USER");
+		String logged = (String) session.getAttribute("loggedAs");
 		if (logged == null) {// session is new or expired
 			System.out.println("This should not happen right now. Might happen later on other pages");
 		} else {
@@ -51,7 +51,7 @@ public class PictureController {
 	}
 	
 	@RequestMapping(value = "/postPicture", method = RequestMethod.GET)
-	public void post(@RequestParam(value = "postId") String postId, HttpServletResponse response) throws IOException {
+	public void post(@RequestParam(value = "post_id") String postId, HttpServletResponse response) throws IOException {
 		if (PostsManager.getInstance().getAllPosts().containsKey(Integer.parseInt(postId))) {
 			Post post = PostsManager.getInstance().getAllPosts().get(Integer.parseInt(postId));
 			returnPic(post, response);

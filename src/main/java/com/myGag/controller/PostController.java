@@ -33,7 +33,7 @@ public class PostController {
 	
 	if(UserController.isUserInSession(request)){
 		InputStream postPicStream = postPicture.getInputStream();
-		File dir = new File("postPics");
+		File dir = new File("D:\\MyGagPictures\\postPics");
 		if(!dir.exists()){
 			dir.mkdir();
 		}

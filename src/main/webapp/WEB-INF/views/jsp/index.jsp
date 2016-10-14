@@ -300,7 +300,7 @@
                
                 <p><span class="glyphicon glyphicon-time"></span> <c:out value="${post.uploadDate}"></c:out> </p>
                 <hr>
-                <a href="DetailsPostServlet?post_id=<c:out value="${post.postId}"></c:out>"><img class="img-responsive" src="PostServlet?post_id=<c:out value="${post.postId}"></c:out>" alt="" width = "500"></a>
+                <a href="DetailsPostServlet?post_id=<c:out value="${post.postId}"></c:out>"><img class="img-responsive" src="postPicture?post_id=<c:out value="${post.postId}"></c:out>" alt="" width = "500"></a>
                 <hr>
                
 				
