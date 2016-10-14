@@ -26,7 +26,7 @@
     <div class="form">
      
       <div class="tab-content">
-        <form  action="uploadpost" method="post" enctype="multipart/form-data">  
+        <form  action="createpost" method="post" enctype="multipart/form-data">  
        
           <h1>Upload Post</h1>
           

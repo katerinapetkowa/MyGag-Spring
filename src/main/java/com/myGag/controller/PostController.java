@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -24,13 +25,13 @@ import com.myGag.model.PostsManager;
 public class PostController {
 	
 	
-@RequestMapping(value = "/uploadpost", method = RequestMethod.POST)
+@RequestMapping(value = "/createpost", method = RequestMethod.POST)
  public String createPost(@RequestParam(value = "username") String username,
 			@RequestParam(value = "title") String title,
 			@RequestParam(value = "category") String category, @RequestParam("postPicture") MultipartFile postPicture,
 			HttpServletRequest request, HttpServletResponse response) throws IOException{
 	
-	if(request.getSession().getAttribute("loggedAs") != null){
+	if(UserController.isUserInSession(request)){
 		InputStream postPicStream = postPicture.getInputStream();
 		File dir = new File("postPics");
 		if(!dir.exists()){
@@ -42,15 +43,20 @@ public class PostController {
 		File postPicFile = new File(dir, username + "-" + date + "-" + time + "-post-pic."+ postPicture.getContentType().split("/")[1]);
 		System.out.println("Try to save file with name: " + postPicFile.getName());
 		System.out.println("abs. path = " + postPicFile.getAbsolutePath());
-		Files.copy(postPicStream, postPicFile.toPath());
+		Files.copy(postPicStream, postPicFile.toPath(),StandardCopyOption.REPLACE_EXISTING);
 		PostsManager.getInstance().uploadPost(username, category, title, LocalDateTime.now(), postPicFile.getName());
 		return "index";
 	}else{
 	
 		return "index";
 	}	
+	
+	
  }
 
-
+@RequestMapping(value = "/uploadpost", method = RequestMethod.GET)
+public String welcome() {
+	return "UploadPost";
+}
 
 }

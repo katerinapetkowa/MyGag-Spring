@@ -225,7 +225,7 @@
                     <c:choose>
                     <c:when test="${sessionScope.loggedAs != null}">
                     <li>
-                        <a href="/MyGag/UploadPost.html"> Upload </a>
+                        <a href="uploadpost"> Upload </a>
                     </li>
                     </c:when>
                     </c:choose>
