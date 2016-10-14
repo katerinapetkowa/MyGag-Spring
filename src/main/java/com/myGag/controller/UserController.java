@@ -112,7 +112,7 @@ public class UserController {
 	}
 
 	public static boolean isUserInSession(HttpServletRequest request) {
-		return request.getSession().getAttribute("USER") != null;
+		return request.getSession().getAttribute("loggedAs") != null;
 	}
 	
 	
