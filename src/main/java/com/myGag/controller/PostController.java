@@ -44,7 +44,7 @@ public class PostController {
 		System.out.println("abs. path = " + postPicFile.getAbsolutePath());
 		Files.copy(postPicStream, postPicFile.toPath());
 		PostsManager.getInstance().uploadPost(username, category, title, LocalDateTime.now(), postPicFile.getName());
-		return "fresh";
+		return "index";
 	}else{
 	
 		return "index";

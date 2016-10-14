@@ -49,13 +49,13 @@
 
 <body>
 	
-	<div id="id01" class="modal" >
-	 <div class="form">
+	<div id="id01" class="modal"  >
+	 <div class="form" >
 	 
 <!-- 	 <form class="modal-content animate" action=""> -->
      
-      <div class="tab-content">
-        <form class ="login" action="LoginServlet" method="POST">  
+      <div class="tab-content" >
+        <form class ="login" action="login" method="POST">  
 <!--         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span> -->
           <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Please log in!</h1>
           
@@ -222,38 +222,49 @@
                     <li>
                         <a href="Food.jsp">Food</a>
                     </li>
-<!--                     <li> -->
-<!--                         <a href="/MyGag/UploadPost.html"> Upload </a> -->
-<!--                     </li> -->
+                    <c:choose>
+                    <c:when test="${sessionScope.loggedAs != null}">
+                    <li>
+                        <a href="/MyGag/UploadPost.html"> Upload </a>
+                    </li>
+                    </c:when>
+                    </c:choose>
+                    <c:choose>
+                    <c:when test="${sessionScope.loggedAs == null}">
                     <li>
                     <button class="dropbtnlog" onclick="document.getElementById('id01').style.display='block';document.getElementById('id02').style.display='none'" style="width:auto;"  >Log in</button>
                     </li>
                      <li>
                     <button class="dropbtnlog" onclick="document.getElementById('id02').style.display='block';document.getElementById('id01').style.display='none'" style="width:auto;"  >Sign up</button>
                     </li>
-                    
-<!--                         <li> <div class="dropdown">  -->
-<!--  							 <img class="dropbtn"   -->
-<%-- 					src="PictureServlet?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt="" height="55" width="55">   --%>
-<!--   									<div class="dropdown-content">  -->
-<!-- 	    								<a href="/MyGag/Profile.jsp">My Profile</a>  -->
-<!--  	    								<a href="/MyGag/ChangeSettings.jsp">Settings</a>  -->
-<!-- 	    								<form action = "LogOutServlet" method = "post">  -->
+                    </c:when>
+                    </c:choose>
+                    <c:choose>
+                     <c:when test='${sessionScope.loggedAs != null}'>
+               	
+             
+                        <li> <div class="dropdown"> 
+ 							 <img class="dropbtn"  
+					src="PictureServlet?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt="" height="55" width="55">  
+  									<div class="dropdown-content"> 
+	    								<a href="/MyGag/Profile.jsp">My Profile</a> 
+ 	    								<a href="/MyGag/ChangeSettings.jsp">Settings</a> 
+	    								<form action = "LogOutServlet" method = "post"> 
 	    								
-<!--  	   									<button class="dropbtnlog" type = "submit" >Logout</button>  -->
+ 	   									<button class="dropbtnlog" type = "submit" >Logout</button> 
 
 	   									
 	   								
-<!--    									</form>  -->
+   									</form> 
 	    						
-<!--   									</div>  -->
-<!-- 					</div> </li>  -->
-						
-						
+  									</div> 
+					</div> </li> 
+						</c:when>
+					</c:choose>	
 						
 					<li>
 					<form action = "SearchServlet" method = "get">
-					<input class = " input[type=text] " style = "color: #b4b4b4"  type="text" name="title" required  placeholder="Search..">
+					<input class = " input[type=text] " onfocus = "this.style.borderColor = '#b4b4b4'" style = "background-image: url('img/searchicon.png');color: #b4b4b4"  type="text" name="title" required  placeholder="Search..">
 					</form>
 					</li>	
 					

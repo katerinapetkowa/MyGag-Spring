@@ -40,13 +40,7 @@
 
 <body>
 
-	<% if(session.getAttribute("loggedAs") == null){ 
 	
-		request.getRequestDispatcher("index.html").forward(request, response);
-	
-		}
-	%>
-
 	<!-- Navigation -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
