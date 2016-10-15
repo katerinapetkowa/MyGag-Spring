@@ -98,9 +98,9 @@
 	    						
   									</div>
 						</div> </li>
-			       <li>
+			     <li>
 					<form action = "searchpost" method = "get">
-					<input class = " input[type=text] " style = "color: #b4b4b4"  type="text" name="title" placeholder="Search..">
+					<input class = " input[type=text] " onfocus = "this.style.borderColor = '#b4b4b4'" style = "background-image: url('img/searchicon.png');color: #b4b4b4"  type="text" name="title" required  placeholder="Search..">
 					</form>
 					</li>
 

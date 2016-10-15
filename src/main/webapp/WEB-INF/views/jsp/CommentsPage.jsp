@@ -258,7 +258,7 @@ function action2()
 				</div>
 				<c:choose>
                      <c:when test="${sessionScope.loggedAs == post.username}">
-				<form action = "DeletePostServlet" method = "post">
+				<form action = "deletePost" method = "post">
 				<button data-toggle="tooltip" data-placement="top"  title="Delete post" style = "float: right;background:none!important; border:none; padding:0!important;font: inherit;border-bottom:none;cursor: pointer" onmouseover="this.style.color = '#808080'" onmouseout="this.style.color = '#222222'">delete</button>
 				<input id="author" name="post_id" type="hidden" value="<c:out value= "${post.postId}"></c:out>" size="30" required>
 				<input id="username" name="username" type="hidden" value="<c:out value="${sessionScope.loggedAs}"></c:out>" size="30" required>
@@ -267,7 +267,7 @@ function action2()
                      </c:choose>
 				<br>
 				<br> 
-				<a style = "color:gray" href = ""> <c:out value="${post.points}"></c:out> points </a>  - <a style = "color:gray" href = ""> <c:out value = "${CommentsManager.getInstance().getNumberOfCommentsOfPost(post.postId)}"></c:out> comments </a>
+				<a style = "color:gray" href = ""> <c:out value="${PostsManager.getInstance().getPointsOfPost(post.postId)}"></c:out> points </a>  - <a style = "color:gray" href = ""> <c:out value = "${CommentsManager.getInstance().getNumberOfCommentsOfPost(post.postId)}"></c:out> comments </a>
                 <!-- Blog Comments -->
 				 
 				<h4> <c:out value = "${CommentsManager.getInstance().getNumberOfCommentsOfPost(post.postId)}"></c:out> comments</h4>
@@ -302,7 +302,7 @@ function action2()
                     <div>
                     <c:choose>
                      <c:when test="${sessionScope.loggedAs == comment.username}">
-                    <form action = "DeleteCommentServlet" method = "post">
+                    <form action = "deleteComment" method = "post">
                 <input id="username" name="username" type="hidden" value="<c:out value="${sessionScope.loggedAs}"></c:out>" size="30" required>
                 <input id="author" name="post_id" type="hidden" value="<c:out value= "${post.postId}"></c:out>" size="30" required>
                 <input id="comments" name="comment_id" type="hidden" value="<c:out value= "${comment.commentId}"></c:out>" size="30" required>
