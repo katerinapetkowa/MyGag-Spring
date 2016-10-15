@@ -54,7 +54,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a href="posts.jsp"> <img src="img/9gag-logo.png" alt="MyGag"
+			<a href="index"> <img src="img/9gag-logo.png" alt="MyGag"
 				width="55" height="55">
 			</a>
 
@@ -64,25 +64,25 @@
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 					<li>
-                        <a href="Hot.jsp">Hot</a>
+                        <a href="hotposts">Hot</a>
                     </li>
                     
                     <li>
-                        <a href="Fresh.jsp">Fresh</a>
+                        <a href="freshposts">Fresh</a>
                     </li>
-				<li><a href="Funny.jsp">Funny</a></li>
-				<li><a href="MovieTV.jsp">MovieTV</a></li>
-				<li><a href="Sport.jsp">Sport</a></li>
-				<li><a href="Food.jsp">Food</a></li>
-				<li><a href="/MyGag/UploadPost.html"> Upload </a></li>
+				<li><a href="funnyposts">Funny</a></li>
+				<li><a href="movieTVposts">MovieTV</a></li>
+				<li><a href="sportposts">Sport</a></li>
+				<li><a href="foodposts">Food</a></li>
+				<li><a href="uploadpost"> Upload </a></li>
 
 				 <li> <div class="dropdown">
  							 <img class="dropbtn" 
-					src="PictureServlet?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt="" height="55" width="55"> 
+					src="profilePicture?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt="" height="55" width="55"> 
   									<div class="dropdown-content">
 	    								<a href="/MyGag/Profile.jsp">My Profile</a>
 	    								<a href="/MyGag/ChangeSettings.jsp">Settings</a>
-	    								<form action = "LogOutServlet" method = "post">
+	    								<form action = "logOut" method = "post">
 	    								
 	   									<button class="dropbtnlog" type = "submit" >Logout</button>
 	   								<% 

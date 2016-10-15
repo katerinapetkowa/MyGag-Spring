@@ -250,7 +250,7 @@ function action2()
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <a href="posts.jsp"> <img alt="MyGag" src="img/9gag-logo.png" height="55" width="55"> </a>
+               <a href="index"> <img alt="MyGag" src="img/9gag-logo.png" height="55" width="55"> </a>
                
                  
             </div>
@@ -259,23 +259,23 @@ function action2()
                 <ul class="nav navbar-nav">
                 
                 	<li>
-                        <a href="Hot.jsp">Hot</a>
+                        <a href="hotposts">Hot</a>
                     </li>
                     
                     <li>
-                        <a href="Fresh.jsp">Fresh</a>
+                        <a href="freshposts">Fresh</a>
                     </li>
                     <li>
-                        <a href="Funny.jsp">Funny</a>
+                        <a href="funnyposts">Funny</a>
                     </li>
                     <li>
-                        <a href="MovieTV.jsp">MovieTV</a>
+                        <a href="movieTVposts">MovieTV</a>
                     </li>
                     <li>
-                        <a href="Sport.jsp">Sport</a>
+                        <a href="sportposts">Sport</a>
                     </li>
                     <li>
-                        <a href="Food.jsp">Food</a>
+                        <a href="foodposts">Food</a>
                     </li>
                    <c:choose>
                     <c:when test="${sessionScope.loggedAs != null}">
@@ -300,11 +300,11 @@ function action2()
                      
                     <li> <div class="dropdown">
  							 <img class="dropbtn" 
-					src="PictureServlet?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt="" height="55" width="55"> 
+					src="profilePicture?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt="" height="55" width="55"> 
   									<div class="dropdown-content">
 	    								<a style = "text-decoration: none" onmouseover="this.style.color = '#b4b4b4'" href="/MyGag/Profile.jsp">My Profile</a>
 	    								<a style = "text-decoration: none" onmouseover="this.style.color = '#b4b4b4'" href="/MyGag/ChangeSettings.jsp">Settings</a>
-	    								<form action = "LogOutServlet" method = "post">
+	    								<form action = "logOut" method = "post">
 	    								
 	   									<button class="dropbtnlog" type = "submit" >Logout</button>
 	   								<% 
@@ -439,7 +439,7 @@ function action2()
                 
                 <div class="well">
                     <h4>Leave a comment</h4>
-                    <form role  = "form" action = "WriteCommentServlet" method = "post">
+                    <form role  = "form" action = "uploadComment" method = "post">
                     
                     
                         <div class="form-group">
@@ -463,7 +463,7 @@ function action2()
                 <hr>
                 <div class = "media">
                     <a class = "pull-left" href="#">
-                        <img class="media-object" src="PictureServlet?username=<c:out value="${user.username}"></c:out>" alt="" width="54" height = "54">
+                        <img class="media-object" src="profilePicture?username=<c:out value="${user.username}"></c:out>" alt="" width="54" height = "54">
                     </a>
                     <div>
                     <c:choose>

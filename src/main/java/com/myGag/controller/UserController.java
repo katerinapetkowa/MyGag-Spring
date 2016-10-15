@@ -51,12 +51,17 @@ public class UserController {
 		return jsp;
 	}
 
-	@RequestMapping(value = "/logOut", method = RequestMethod.GET)
+	@RequestMapping(value = "/logOut", method = RequestMethod.POST)
 	protected String logOut(HttpSession session, HttpServletResponse response) {
 		session.invalidate();
 		response.setHeader("Pragma", "No-cache"); 
 		response.setDateHeader("Expires", 0); 
 		response.setHeader("Cache-Control",  "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0"); 
+		return "index";
+	}
+	
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String index() {
 		return "index";
 	}
 	

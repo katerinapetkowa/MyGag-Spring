@@ -20,9 +20,9 @@ public class CommentController {
 		int postId = Integer.parseInt(request.getParameter("post_id"));
 		if(comment!=null){
 			CommentsManager.getInstance().uploadComment(username, postId, comment, 0 , LocalDateTime.now());
-			return "postDetails";
+			return "CommentsPage";
 		}
-		return "postDetails";
+		return "CommentsPage";
 	}
 	
 	

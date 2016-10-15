@@ -37,7 +37,7 @@
 					<small style="color: white"><b>Avatar</b> </small>
 					<br>
 				<img class="img-responsive"
-					src="PictureServlet?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt="" width="100">
+					src="profilePicture?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt="" width="100">
 				<br>	
 				<div class="field-wrap">
 					<input type="file" name="profilePicture" accept="image/*" 

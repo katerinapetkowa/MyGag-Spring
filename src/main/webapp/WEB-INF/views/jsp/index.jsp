@@ -249,7 +249,7 @@
   									<div class="dropdown-content"> 
 	    								<a href="/MyGag/Profile.jsp">My Profile</a> 
  	    								<a href="/MyGag/ChangeSettings.jsp">Settings</a> 
-	    								<form action = "LogOutServlet" method = "post"> 
+	    								<form action = "logOut" method = "post"> 
 	    								
  	   									<button class="dropbtnlog" type = "submit" >Logout</button> 
 

@@ -49,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <a href="posts.jsp"> <img alt="MyGag" src="img/9gag-logo.png" height="55" width="55"> </a>
+               <a href="index"> <img alt="MyGag" src="img/9gag-logo.png" height="55" width="55"> </a>
                </div>
                <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
