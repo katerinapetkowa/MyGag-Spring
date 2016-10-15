@@ -305,6 +305,7 @@ public class PostsManager {
 		}
 		CommentsManager.getInstance().deleteAllCommentsOfPost(postId);
 		String postCategory = PostsManager.getInstance().getPost(postId).getCategory();
+		String usernameOfPost = PostsManager.getInstance().getPost(postId).getUsername();
 		PostsManager.getInstance().allPosts.remove(postId);
 		PostsManager.getInstance().postsByCategories.get(postCategory).remove(postId);
 		if (PostsManager.getInstance().postUpvotes.containsKey(postId)) {
@@ -317,6 +318,7 @@ public class PostsManager {
 				UsersManager.getInstance().getUser(username).removeDownvoteOfPost(postId);
 			}
 		}
+		UsersManager.getInstance().getUser(usernameOfPost).removePost(postId);
 	}
 
 	public void removePostFromCollections(int postId) {
@@ -327,11 +329,13 @@ public class PostsManager {
 			for (String username : PostsManager.getInstance().postUpvotes.get(postId)) {
 				UsersManager.getInstance().getUser(username).removeUpvoteOfPost(postId);
 			}
+			PostsManager.getInstance().postUpvotes.remove(postId);
 		}
 		if (PostsManager.getInstance().postDownvotes.containsKey(postId)) {
 			for (String username : PostsManager.getInstance().postDownvotes.get(postId)) {
 				UsersManager.getInstance().getUser(username).removeDownvoteOfPost(postId);
 			}
+			PostsManager.getInstance().postDownvotes.remove(postId);
 		}
 	}
 

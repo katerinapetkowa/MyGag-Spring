@@ -104,8 +104,7 @@ public class UsersManager {
 	}
 
 	public void deleteUser(String username) {
-		UserDAO.getInstance().deleteUserFromDB(username); // removing user from
-															// db
+		UserDAO.getInstance().deleteUserFromDB(username); // removing user from db
 		User user = UsersManager.getInstance().getUser(username);
 
 		// remove comments of user
@@ -115,7 +114,7 @@ public class UsersManager {
 			}
 		}
 
-		for (int postId : user.getPosts().keySet()) { // removing user's postsfrom collections,removing posts' omments and votes
+		for (int postId : user.getPosts().keySet()) { // removing user's posts from collections,removing posts' comments and votes
 			PostsManager.getInstance().removePostFromCollections(postId);
 		}
 

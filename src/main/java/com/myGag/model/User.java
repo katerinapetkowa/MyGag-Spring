@@ -1,7 +1,6 @@
 package com.myGag.model;
 
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -167,6 +166,12 @@ public class User {
 	public void removeDownvoteOfPost(int postId) {
 		if (this.downvotes.contains(postId)) {
 			this.downvotes.remove(postId);
+		}
+	}
+
+	public void removePost(int postId) {
+		if (this.posts.containsKey(postId)) {
+			this.posts.remove(postId);
 		}
 	}
 
