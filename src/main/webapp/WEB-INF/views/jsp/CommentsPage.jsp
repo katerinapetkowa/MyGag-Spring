@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.myGag.model.PostsManager" %>
+<%@ page import="com.myGag.model.PostsManager" %> 
 <%@ page import="com.myGag.model.Post" %>
 <%@ page import="com.myGag.model.UsersManager" %>
 <%@ page import="com.myGag.model.User" %>

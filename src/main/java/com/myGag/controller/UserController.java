@@ -3,10 +3,8 @@ package com.myGag.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
-import java.security.SecureRandom;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.myGag.model.RegisterEmail;
 import com.myGag.model.UsersManager;
 
 
@@ -34,21 +31,15 @@ public class UserController {
 	private static final int MINIMUM_PASSWORD_LENGTH = 6;
 	private static final String EMAIL_PATTERN = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9]+.[a-z.]+$";
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(@RequestParam("username") String username, @RequestParam("password") String password,
-			HttpSession session, HttpServletResponse response) {
-		String encryptedPassword = UsersManager.getInstance().passwordToMD5(password);
-		String jsp;
-		if (UsersManager.getInstance().validLogin(username, encryptedPassword)) {
-			session.setAttribute("loggedAs", username);
-			jsp = "index";
-		} else {
-			jsp = "LoginFailed";
-		}
+	
+	
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login(HttpServletResponse response) {
 		response.setHeader("Pragma", "No-cache");
 		response.setDateHeader("Expires", 0);
 		response.setHeader("Cache-Control",  "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0");
-		return jsp;
+		return "index";
 	}
 
 	@RequestMapping(value = "/logOut", method = RequestMethod.POST)
