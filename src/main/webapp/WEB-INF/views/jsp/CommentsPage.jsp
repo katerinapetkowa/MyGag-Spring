@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.myGag.model.PostsManager" %>
-<%@ page import = "com.myGag.model.UsersManager" %>
 <%@ page import="com.myGag.model.Post" %>
+<%@ page import="com.myGag.model.UsersManager" %>
+<%@ page import="com.myGag.model.User" %>
+<%@ page import="com.myGag.model.CommentsManager" %>
+<%@ page import="com.myGag.model.Comment" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -27,15 +30,10 @@
     <link href="css/button.css" rel="stylesheet">
     <link href="css/dropdown.css" rel="stylesheet">
     <link href="css/LogOutButton.css" rel="stylesheet">
+    <link href="css/postDetails.css" rel="stylesheet">
     <link href="css/searchBox.css" rel="stylesheet">
     <link href="css/modal.css" rel="stylesheet">
     
-     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
-    
-    <link rel="stylesheet" href="css/normalize.css">
-
-    
-        <link rel="stylesheet" href="css/style.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,9 +42,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     
-    
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
@@ -99,144 +95,12 @@ function action2()
 
 </script>
 
-    
+
 
 </head>
 
-
 <body>
 	
-	<div id="id01" class="modal"  >
-	 <div class="form" >
-	 
-<!-- 	 <form class="modal-content animate" action=""> -->
-     
-      <div class="tab-content" >
-        <form class ="login" action="login" method="POST">  
-<!--         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span> -->
-          <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Please log in!</h1>
-          
-          
-          
-   			
-            <div class="field-wrap">
-              <label>
-                Username<span class="req">*</span>
-              </label>
-              <input type="text" name="username" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
-              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
-              maxlength="30" required autocomplete="off"/>
-            </div>
-          
-
-          
-          
-          <div class="field-wrap">
-            <label>
-              Password<span class="req">*</span>
-            </label>
-            <input type="password" name="password" maxlength="30" required autocomplete="off"/>
-          </div>
-          
-          <button class="button button-block"  type="submit">Log in</button>
-         <br>
-<!--           <button class="button button-block" type="submit" onclick="window.location.href='/MyGag/register.html'"> Register</button> -->
-          
-          </form>
-
-    
-        
-        
-        
-      </div><!-- tab-content -->
-      
-</div> <!-- /form -->
-<!--  </form> -->
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-        <script src="js/index.js"></script>
-           
-</div>
-    
-    <div id="id02" class="modal">
-	 <div class="form">
-	 
-<!-- 	 <form class="modal-content animate" action=""> -->
-     
-      <div class="tab-content">
-        <form class ="signup" action="RegisterServlet" method="POST" enctype="multipart/form-data">  
-        <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-          <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Sign up</h1>
-          
-          
-          
-   			
-            <div class="field-wrap">
-              <label>
-                Name<span class="req">*</span>
-              </label>
-              <input type="text" name="username" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
-              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
-              maxlength="30" required autocomplete="off"/>
-            </div>
-          
-
-          <div class="field-wrap">
-              <label>
-                Username<span class="req">*</span>
-              </label>
-              <input type="text" name="username" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
-              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
-              maxlength="30" required autocomplete="off"/>
-            </div>
-          
-          <div class="field-wrap">
-              <label>
-                Email<span class="req">*</span>
-              </label>
-              <input type="email" name="email" maxlength="40" required autocomplete="off"/>
-            </div>   
-          
-          <div class="field-wrap">
-            <label>
-              Password<span class="req">*</span>
-            </label>
-            <input type="password" name="password" maxlength="30" required autocomplete="off"/>
-          </div>
-          
-           <div class="field-wrap">
-            <label>
-              Confirm Password<span class="req">*</span>
-            </label>
-            <input type="password"  name="password2" id="confirm_password" maxlength="30" required autocomplete="off"/>
-          </div>
-          
- 		<div class="field-wrap">
-         
-            <input type="file"  name="profilePicture" accept="image/*" required autocomplete="off"/>
-          </div>   
-          
-          <button class="button button-block" type="submit">Register</button>
-         <br>
-<!--           <button class="button button-block" type="submit" onclick="window.location.href='/MyGag/register.html'"> Register</button> -->
-          
-          </form>
-
-    
-        
-        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-        <script src="js/alex.js"></script> 
-        
-      </div><!-- tab-content -->
-      
-</div> <!-- /form -->
-<!--  </form> -->
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-        <script src="js/index.js"></script>
-           
-</div>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -277,26 +141,9 @@ function action2()
                     <li>
                         <a href="foodposts">Food</a>
                     </li>
-                   <c:choose>
-                    <c:when test="${sessionScope.loggedAs != null}">
                     <li>
                         <a href="uploadpost"> Upload </a>
                     </li>
-                    </c:when>
-                    </c:choose>
-                    
-                    <c:choose>
-                    <c:when test="${sessionScope.loggedAs == null}">
-                    <li>
-                    <button class="dropbtnlog" onclick="document.getElementById('id01').style.display='block';document.getElementById('id02').style.display='none'" style="width:auto;"  >Log in</button>
-                    </li>
-                     <li>
-                    <button class="dropbtnlog" onclick="document.getElementById('id02').style.display='block';document.getElementById('id01').style.display='none'" style="width:auto;"  >Sign up</button>
-                    </li>
-                    </c:when>
-                    </c:choose>
-                    <c:choose>
-                     <c:when test='${sessionScope.loggedAs != null}'>
                      
                     <li> <div class="dropdown">
  							 <img class="dropbtn" 
@@ -320,13 +167,11 @@ function action2()
 	    						
   									</div>
 						</div> </li>
-						</c:when>
-					</c:choose>	
 					<li>
 					<form action = "SearchServlet" method = "get">
-					<input class = " input[type=text] " style = "color: #b4b4b4"  type="text" name="title" placeholder="Search..">
+					<input class = " input[type=text] " onfocus = "this.style.borderColor = '#b4b4b4'" style = "background-image: url('img/searchicon.png');color: #b4b4b4"  type="text" name="title" required  placeholder="Search..">
 					</form>
-					</li>	
+					</li>
                     
                 </ul>
                 
@@ -360,12 +205,8 @@ function action2()
 
 
 				<hr>
-				
-				
 				<div style="width:50px;">
 				<div style="float: left; width: 5px">
-				<c:choose>
-                    <c:when test="${sessionScope.loggedAs != null}">
 				<form action = "postlike" method = "post">
 <%-- 				<a href="LikeServlet?post_id=<c:out value="${post.postId}"></c:out>"> <input type = "image" id ="image" src="heart.png" onclick="action();" alt="Submit" width="38" height="38"></a>  --%>
 				
@@ -382,7 +223,7 @@ function action2()
 				</form></div>
 				
 				<div style="float: right; width: 5px">
-				<form action = "DislikeServlet" method = "post">
+				<form action = "postdislike" method = "post">
 				
 				<input id="author" name="post_id" type="hidden" value="<c:out value= "${post.postId}"></c:out>" size="30" required>
 				<input id="username" name="username" type="hidden" value="<c:out value="${sessionScope.loggedAs}"></c:out>" size="30" required>
@@ -397,11 +238,7 @@ function action2()
 				</c:otherwise>
 				</c:choose>
 				
-				</form>
-				</c:when>
-					</c:choose>	
-				</div>
-				
+				</form></div>
 				
 				<div style="float: left; width: 55px">
 <%-- 				<c:choose> --%>
@@ -432,18 +269,16 @@ function action2()
 				<br> 
 				<a style = "color:gray" href = ""> <c:out value="${post.points}"></c:out> points </a>  - <a style = "color:gray" href = ""> <c:out value = "${CommentsManager.getInstance().getNumberOfCommentsOfPost(post.postId)}"></c:out> comments </a>
                 <!-- Blog Comments -->
-				 <c:choose>
-                    <c:when test="${sessionScope.loggedAs != null}">
+				 
 				<h4> <c:out value = "${CommentsManager.getInstance().getNumberOfCommentsOfPost(post.postId)}"></c:out> comments</h4>
                 <!-- Comments Form -->
-                
                 <div class="well">
                     <h4>Leave a comment</h4>
                     <form role  = "form" action = "uploadComment" method = "post">
                     
                     
                         <div class="form-group">
-                            <textarea class="form-control" maxlength="140" name = "comment" required></textarea>
+                            <textarea class="form-control" name = "comment" required></textarea>
                         </div> 
                         <input id="author" name="post_id" type="hidden" value="<c:out value= "${post.postId}"></c:out>" size="30" required>
                         <input id="username" name="username" type="hidden" value="<c:out value="${sessionScope.loggedAs}"></c:out>" size="30" required>
@@ -451,8 +286,7 @@ function action2()
                        
                     </form>
                 </div>
-		</c:when>
-	</c:choose>
+
               
 
                <!-- Posted Comments -->
@@ -472,7 +306,10 @@ function action2()
                 <input id="username" name="username" type="hidden" value="<c:out value="${sessionScope.loggedAs}"></c:out>" size="30" required>
                 <input id="author" name="post_id" type="hidden" value="<c:out value= "${post.postId}"></c:out>" size="30" required>
                 <input id="comments" name="comment_id" type="hidden" value="<c:out value= "${comment.commentId}"></c:out>" size="30" required>
-                    <button data-toggle="tooltip" data-placement="top" title="Delete comment" style = "float: right;background:none!important; border:none; padding:0!important;font: inherit;border-bottom:none;cursor: pointer" onmouseover="this.style.color = '#808080'" onmouseout="this.style.color = '#222222'">x</button>
+                    <button data-toggle="tooltip" data-placement="top" title="Delete comment" style = "float: right;background:none!important; border:none;
+                     padding:0!important;font: inherit;border-bottom:none;cursor: pointer" 
+                     onmouseover="this.style.color = '#808080'" 
+                     onmouseout="this.style.color = '#222222'">x</button>
                      </form>
                      </c:when>
                      </c:choose>

@@ -50,7 +50,9 @@
 <body>
 	
 	<div id="id01" class="modal"  >
-	 <div class="form" >
+	 <div class="form" style = " opacity: 1 !important;
+    filter: alpha(opacity=100);
+background: #13232f;">
 	 
 <!-- 	 <form class="modal-content animate" action=""> -->
      
@@ -102,7 +104,9 @@
 </div>
     
     <div id="id02" class="modal">
-	 <div class="form">
+	 <div class="form" style = " opacity: 1 !important;
+    filter: alpha(opacity=100);
+background: #13232f;">
 	 
 <!-- 	 <form class="modal-content animate" action=""> -->
      
