@@ -203,24 +203,24 @@
                 <ul class="nav navbar-nav">
                 
                 	<li>
-                        <a href="Hot.jsp">Hot</a>
+                        <a href="hotposts">Hot</a>
                     </li>
                     
                     <li>
-                        <a href="Fresh.jsp">Fresh</a>
+                        <a href="freshposts">Fresh</a>
                     </li>
                 	
                     <li>
-                        <a href="Funny.jsp">Funny</a>
+                        <a href="funnyposts">Funny</a>
                     </li>
                     <li>
-                        <a href="MovieTV.jsp">MovieTV</a>
+                        <a href="movieTVposts">MovieTV</a>
                     </li>
                     <li>
-                        <a href="Sport.jsp">Sport</a>
+                        <a href="sportposts">Sport</a>
                     </li>
                     <li>
-                        <a href="Food.jsp">Food</a>
+                        <a href="foodposts">Food</a>
                     </li>
                     <c:choose>
                     <c:when test="${sessionScope.loggedAs != null}">
@@ -295,12 +295,12 @@
 				
                 <!-- First Blog Post -->
                 <h2>
-                    <a style = "text-decoration: none; color:#222222" onmouseover="this.style.color = '#23527c'" onmouseout="this.style.color = '#222222'" href="DetailsPostServlet?post_id=<c:out value="${post.postId}"></c:out>"> <c:out value="${post.title}"></c:out></a>
+                    <a style = "text-decoration: none; color:#222222" onmouseover="this.style.color = '#23527c'" onmouseout="this.style.color = '#222222'" href="viewpost?post_id=<c:out value="${post.postId}"></c:out>"> <c:out value="${post.title}"></c:out></a>
                 </h2>
                
                 <p><span class="glyphicon glyphicon-time"></span> <c:out value="${post.uploadDate}"></c:out> </p>
                 <hr>
-                <a href="DetailsPostServlet?post_id=<c:out value="${post.postId}"></c:out>"><img class="img-responsive" src="postPicture?post_id=<c:out value="${post.postId}"></c:out>" alt="" width = "500"></a>
+                <a href="viewpost?post_id=<c:out value="${post.postId}"></c:out>"><img class="img-responsive" src="postPicture?post_id=<c:out value="${post.postId}"></c:out>" alt="" width = "500"></a>
                 <hr>
                
 				

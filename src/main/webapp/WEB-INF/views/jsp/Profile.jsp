@@ -171,15 +171,15 @@
 				<!-- First Blog Post -->
 				<h2>
 					<a style = "text-decoration: none; color:#222222" onmouseover="this.style.color = '#23527c'" onmouseout="this.style.color = '#222222'" 
-					href="DetailsPostServlet?post_id=${post.postId}"><c:out value="${post.title}"></c:out></a>
+					href="viewpost?post_id=${post.postId}"><c:out value="${post.title}"></c:out></a>
 				</h2>
 
 				<p>
 					<span class="glyphicon glyphicon-time"></span>
 					${post.uploadDate}</p>
 				<hr>
-				<a href="DetailsPostServlet?post_id=${post.postId}"> <img class="img-responsive"
-					src="PostServlet?post_id=${post.postId}" alt="" width="500"></a>
+				<a href="viewpost?post_id=${post.postId}"> <img class="img-responsive"
+					src="postPicture?post_id=${post.postId}" alt="" width="500"></a>
 				<hr>
 
 				</c:forEach>

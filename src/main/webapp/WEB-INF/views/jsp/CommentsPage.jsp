@@ -62,7 +62,7 @@ window.addEventListener('load', mInit, false);
 function mInit()
 {
     var tgt = byId('image');
-    tgt.secondSource = 'redheart2.png';
+    tgt.secondSource = 'img/redheart2.png';
 }
 
 function byId(e){return document.getElementById(e);}
@@ -84,7 +84,7 @@ window.addEventListener('load', mInit, false);
 function mInit()
 {
     var tgt = byId('image2');
-    tgt.secondSource = 'reddislike2.png';
+    tgt.secondSource = 'img/reddislike2.png';
 }
 
 function byId(e){return document.getElementById(e);}
@@ -356,16 +356,17 @@ function action2()
                 <hr>
 
                 <!-- Preview Image -->
-                <img class="img-responsive" src="PostServlet?post_id=<c:out value="${post.postId}"></c:out>" alt="" width = "500">
+                <img class="img-responsive" src="postPicture?post_id=<c:out value="${post.postId}"></c:out>" alt="" width = "500">
 
 
 				<hr>
 				
-				<c:choose>
-                    <c:when test="${sessionScope.loggedAs != null}">
+				
 				<div style="width:50px;">
 				<div style="float: left; width: 5px">
-				<form action = "LikeServlet" method = "post">
+				<c:choose>
+                    <c:when test="${sessionScope.loggedAs != null}">
+				<form action = "postlike" method = "post">
 <%-- 				<a href="LikeServlet?post_id=<c:out value="${post.postId}"></c:out>"> <input type = "image" id ="image" src="heart.png" onclick="action();" alt="Submit" width="38" height="38"></a>  --%>
 				
 				<input id="author" name="post_id" type="hidden" value="<c:out value= "${post.postId}"></c:out>" size="30" required>
@@ -396,7 +397,11 @@ function action2()
 				</c:otherwise>
 				</c:choose>
 				
-				</form></div>
+				</form>
+				</c:when>
+					</c:choose>	
+				</div>
+				
 				
 				<div style="float: left; width: 55px">
 <%-- 				<c:choose> --%>
@@ -412,8 +417,7 @@ function action2()
 				
 				
 				</div>
-				</c:when>
-					</c:choose>	
+				
 				</div>
 				<c:choose>
                      <c:when test="${sessionScope.loggedAs == post.username}">
@@ -428,11 +432,11 @@ function action2()
 				<br> 
 				<a style = "color:gray" href = ""> <c:out value="${post.points}"></c:out> points </a>  - <a style = "color:gray" href = ""> <c:out value = "${CommentsManager.getInstance().getNumberOfCommentsOfPost(post.postId)}"></c:out> comments </a>
                 <!-- Blog Comments -->
-				 
+				 <c:choose>
+                    <c:when test="${sessionScope.loggedAs != null}">
 				<h4> <c:out value = "${CommentsManager.getInstance().getNumberOfCommentsOfPost(post.postId)}"></c:out> comments</h4>
                 <!-- Comments Form -->
-                <c:choose>
-                    <c:when test="${sessionScope.loggedAs != null}">
+                
                 <div class="well">
                     <h4>Leave a comment</h4>
                     <form role  = "form" action = "WriteCommentServlet" method = "post">

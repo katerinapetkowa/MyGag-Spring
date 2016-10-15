@@ -12,6 +12,7 @@ import java.time.format.DateTimeFormatter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.myGag.model.Post;
 import com.myGag.model.PostsManager;
 
 @Controller
@@ -54,9 +56,58 @@ public class PostController {
 	
  }
 
+
+@RequestMapping(value = "/postlike", method = RequestMethod.POST)
+	public String likePost(@RequestParam(value = "post_id") String postId,  HttpSession session,
+			HttpServletRequest request) {
+		if (UserController.isUserInSession(request)) {
+			System.out.println(postId);
+			Post post = PostsManager.getInstance().getPost(Integer.parseInt(postId));
+			String logged = session.getAttribute("loggedAs").toString();
+			if (!PostsManager.getInstance().getPostUpvotes().containsKey(postId)) {
+				if (PostsManager.getInstance().getPostDownvotes().containsKey(postId)) {
+					if (PostsManager.getInstance().getPostDownvotes().get(postId).contains(logged)) {
+						PostsManager.getInstance().downvoteToUpvote(logged, Integer.parseInt(postId));
+					}
+				} else {
+					PostsManager.getInstance().upVotePost(logged, Integer.parseInt(postId));
+				}
+			} else {
+				if (PostsManager.getInstance().getPostUpvotes().get(postId).contains(logged)) {
+					PostsManager.getInstance().reverseUpvote(logged, Integer.parseInt(postId));
+				} else {
+					if (PostsManager.getInstance().getPostDownvotes().containsKey(postId)) {
+						if (PostsManager.getInstance().getPostDownvotes().get(postId).contains(logged)) {
+							PostsManager.getInstance().downvoteToUpvote(logged, Integer.parseInt(postId));
+						} else {
+							PostsManager.getInstance().upVotePost(logged, Integer.parseInt(postId));
+						}
+					} else {
+						PostsManager.getInstance().upVotePost(logged, Integer.parseInt(postId));
+					} 
+				}
+
+			}
+			return "CommentsPage";
+		} else {
+			return "CommentsPage";
+		}
+	}
+
+@RequestMapping(value = "/viewpost", method = RequestMethod.GET)
+	public String viewPost(@RequestParam("post_id") String postId, HttpServletRequest request){
+		if (UserController.isUserInSession(request)) {
+			Post post = PostsManager.getInstance().getPost(Integer.parseInt(postId));
+			return "CommentsPage";
+		}else{
+			return "CommentsPage";
+		}
+	}
+
+
 @RequestMapping(value = "/uploadpost", method = RequestMethod.GET)
-public String welcome() {
-	return "UploadPost";
-}
+	public String welcome() {
+		return "UploadPost";
+	}
 
 }
