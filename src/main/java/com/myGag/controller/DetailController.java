@@ -62,4 +62,9 @@ public class DetailController {
 	public String viewCommentedPosts() {
 		return "Comments";
 	}
+	
+	@RequestMapping(value = "/settings", method = RequestMethod.GET)
+	public String settings() {
+		return "Settings";
+	}
 }

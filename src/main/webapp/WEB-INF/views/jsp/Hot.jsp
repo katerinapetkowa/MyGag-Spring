@@ -289,7 +289,7 @@ background: #13232f;">
 
             <!-- Blog Entries Column -->
             <div class="col-md-8">
-				<c:if test='${PostsManager.getInstance().getFreshPostsByCategory("Hot").isEmpty()}'>
+				<c:if test='${PostsManager.getInstance().getHotPosts().isEmpty()}'>
                 <h2 style = "font-family:sans-serif" class="page-header">
                    No posts for this category   
                 </h2>
