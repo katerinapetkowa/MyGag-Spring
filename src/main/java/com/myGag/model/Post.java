@@ -8,17 +8,15 @@ public class Post implements Comparable<Post> {
 	private String username;
 	private String category; 
 	private String title;
-	private  int points;
 	private LocalDateTime uploadDate;
 	private String picture;
 	
 	
-	public Post(int postId, String username, String category, String title, int points, LocalDateTime uploadDate, String picture) {
+	public Post(int postId, String username, String category, String title, LocalDateTime uploadDate, String picture) {
 		this.postId = postId;
 		this.username = username;
 		this.category = category;
 		this.title = title;
-		this.points = points;
 		this.uploadDate = uploadDate;
 		this.picture = picture;
 	}
@@ -44,10 +42,6 @@ public class Post implements Comparable<Post> {
 	}
 
 
-	public int getPoints() {
-		return points;
-	}
-
 	public LocalDateTime getUploadDate() {
 		return uploadDate;
 	}
@@ -55,29 +49,25 @@ public class Post implements Comparable<Post> {
 	public String getPicture() {
 		return picture;
 	}
-	
-	public void getUpVote(){
-		this.points += 1;
-	}
-
-	public void getDownVote(){
-		this.points -= 1;
-	}
-
-	@Override
-	public int compareTo(Post p) {
-		if(this.points == p.points){
-			return -1;
-		}
-		return this.points - p.points;
-	}
 
 
 	@Override
 	public String toString() {
 		return "Post [postId=" + postId + ", username=" + username + ", category=" + category + ", title=" + title
-				+ ", points=" + points + ", uploadDate=" + uploadDate + ", picture=" + picture + "]";
+				+ ", uploadDate=" + uploadDate + ", picture=" + picture + "]";
 	}
+
+
+	@Override
+	public int compareTo(Post p) {
+		if(PostsManager.getInstance().getPointsOfPost(this.getPostId()) == PostsManager.getInstance().getPointsOfPost(p.getPostId())){
+			return this.getUploadDate().compareTo(p.getUploadDate());
+		}
+		return (PostsManager.getInstance().getPointsOfPost(this.getPostId()) - PostsManager.getInstance().getPointsOfPost(p.getPostId()));
+	}
+	
+	
+	
 
 
 }

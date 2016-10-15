@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentSkipListSet;
 import com.myGag.model.db.UserDAO;
 
 public class UsersManager {
-
+ 
 	private static UsersManager instance;
 	private ConcurrentHashMap<String, User> registerredUsers;
 
@@ -44,19 +44,13 @@ public class UsersManager {
 
 	public void registerUser(String username, String name, String password, String email, String profilePicture) {
 		UserDAO.getInstance().addUserToDB(username, name, password, email, profilePicture);
-		User user = new User(username, name, password, email, profilePicture, "My Funny Collection", new ConcurrentHashMap<Integer, Post>(),
+		User user = new User(username, name, password, email, profilePicture, "My Funny Collection",
 				new ConcurrentHashMap<Integer, Post>(), new ConcurrentHashMap<Integer, Post>(),
-				new ConcurrentHashMap<Integer, Set<Integer>>(), new ConcurrentSkipListSet<Integer>());
+				new ConcurrentHashMap<Integer, Post>(), new ConcurrentHashMap<Integer, Set<Integer>>(),
+				new ConcurrentSkipListSet<Integer>());
 		registerredUsers.put(username, user);
 		System.out.println("User added successfully to collection of all users");
 	}
-
-//	public void changeName(String username, String name) {
-//		UserDAO.getInstance().changeNameInDB(username, name);
-//		User user = registerredUsers.get(username);
-//		user.setName(name);
-//		System.out.println("Name changed successfully in collection");
-//	}
 
 	public void changePassword(String username, String password) {
 		UserDAO.getInstance().changePasswordInDB(username, password);
@@ -65,23 +59,16 @@ public class UsersManager {
 		System.out.println("Password changed successfully in collection");
 	}
 
-//	public void changeEmail(String username, String email) {
-//		UserDAO.getInstance().changeEmailInDB(username, email);
-//		User user = registerredUsers.get(username);
-//		user.setEmail(email);
-//		;
-//		System.out.println("Email changed successfully in collection");
-//	}
-
 	public void changeProfilePicture(String username, String profilePicture) {
 		UserDAO.getInstance().changeProfilePictureInDB(username, profilePicture);
 		User user = registerredUsers.get(username);
 		user.setProfilePicture(profilePicture);
 		System.out.println("Profile picture changed successfully in collection");
 	}
-	
-	public void changeProfile(String username, String name, String email, String description){
-		UserDAO.getInstance().changeProfileInDB(username, name, email, description);;
+
+	public void changeProfile(String username, String name, String email, String description) {
+		UserDAO.getInstance().changeProfileInDB(username, name, email, description);
+		;
 		User user = registerredUsers.get(username);
 		user.setName(name);
 		user.setEmail(email);
@@ -117,25 +104,28 @@ public class UsersManager {
 	}
 
 	public void deleteUser(String username) {
-		UserDAO.getInstance().deleteUserFromDB(username); //removing user from db
+		UserDAO.getInstance().deleteUserFromDB(username); // removing user from
+															// db
 		User user = UsersManager.getInstance().getUser(username);
-		for(int postId : user.getPosts().keySet()){  //removing user's posts from collections, removing posts' comments and votes
-			PostsManager.getInstance().removePostFromCollections(postId);
-		}
-		for(int postId : user.getComments().keySet()){  //deleting user's comments from other user's posts
-			for(int commentId : user.getComments().get(postId)){
-				CommentsManager.getInstance().removeCommentFromAllComments(postId, commentId);
+
+		// remove comments of user
+		for (int postId : user.getComments().keySet()) {
+			for (int commentId : user.getComments().get(postId)) {
+				CommentsManager.getInstance().removeCommentFromCollectionOfComments(postId, commentId);
 			}
 		}
-		for(int postId : user.getUpvotedPosts().keySet()){ //removing upvotes from collection of upvotes
+
+		for (int postId : user.getPosts().keySet()) { // removing user's postsfrom collections,removing posts' omments and votes
+			PostsManager.getInstance().removePostFromCollections(postId);
+		}
+
+		for (int postId : user.getUpvotedPosts().keySet()) { // removing upvotes from collection of upvotes
 			PostsManager.getInstance().removeUpvoteFromCollection(postId, username);
-			PostsManager.getInstance().reverseUpvoteOfUser(postId, username);
 		}
-		for(int postId : user.getDownvotes()){ //removing downvotes from collection of downvotes
+		for (int postId : user.getDownvotes()) { // removing downvotes from collection of downvotes
 			PostsManager.getInstance().removeDownvoteFromCollection(postId, username);
-			PostsManager.getInstance().reverseDownvoteOfUser(postId, username);
 		}
-		UsersManager.getInstance().registerredUsers.remove(username); //removing user from collection of users
+		UsersManager.getInstance().registerredUsers.remove(username); // removing user from collection of users
 	}
 
 }

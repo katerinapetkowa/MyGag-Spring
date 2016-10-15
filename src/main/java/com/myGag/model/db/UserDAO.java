@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentSkipListSet;
 import com.myGag.model.Post;
 import com.myGag.model.User;
 import com.myGag.model.UsersManager;
-
+ 
 public class UserDAO {
 
 	private static UserDAO instance;

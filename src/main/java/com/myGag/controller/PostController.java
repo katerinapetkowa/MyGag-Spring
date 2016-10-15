@@ -61,33 +61,8 @@ public class PostController {
 	public String likePost(@RequestParam(value = "post_id") String postId,  HttpSession session,
 			HttpServletRequest request) {
 		if (UserController.isUserInSession(request)) {
-			System.out.println(postId);
-			Post post = PostsManager.getInstance().getPost(Integer.parseInt(postId));
 			String logged = session.getAttribute("loggedAs").toString();
-			if (!PostsManager.getInstance().getPostUpvotes().containsKey(postId)) {
-				if (PostsManager.getInstance().getPostDownvotes().containsKey(postId)) {
-					if (PostsManager.getInstance().getPostDownvotes().get(postId).contains(logged)) {
-						PostsManager.getInstance().downvoteToUpvote(logged, Integer.parseInt(postId));
-					}
-				} else {
-					PostsManager.getInstance().upVotePost(logged, Integer.parseInt(postId));
-				}
-			} else {
-				if (PostsManager.getInstance().getPostUpvotes().get(postId).contains(logged)) {
-					PostsManager.getInstance().reverseUpvote(logged, Integer.parseInt(postId));
-				} else {
-					if (PostsManager.getInstance().getPostDownvotes().containsKey(postId)) {
-						if (PostsManager.getInstance().getPostDownvotes().get(postId).contains(logged)) {
-							PostsManager.getInstance().downvoteToUpvote(logged, Integer.parseInt(postId));
-						} else {
-							PostsManager.getInstance().upVotePost(logged, Integer.parseInt(postId));
-						}
-					} else {
-						PostsManager.getInstance().upVotePost(logged, Integer.parseInt(postId));
-					} 
-				}
-
-			}
+			PostsManager.getInstance().upVotePost(logged, Integer.parseInt(postId));
 			return "CommentsPage";
 		} else {
 			return "CommentsPage";
@@ -101,33 +76,8 @@ public class PostController {
 	HttpServletRequest request) {
 	
 		if (UserController.isUserInSession(request)) {
-			Post post = PostsManager.getInstance().getPost(Integer.parseInt(postId));
 			String logged = session.getAttribute("loggedAs").toString();
-			if (!PostsManager.getInstance().getPostDownvotes().containsKey(postId)) {
-				if (PostsManager.getInstance().getPostUpvotes().containsKey(postId)) {
-					if (PostsManager.getInstance().getPostUpvotes().get(postId).contains(logged)) {
-						PostsManager.getInstance().upvoteToDownvote(logged, Integer.parseInt(postId));
-					}
-				} else {
-					PostsManager.getInstance().downVotePost(logged, Integer.parseInt(postId));
-				}
-			} else {
-				if (PostsManager.getInstance().getPostDownvotes().get(postId).contains(logged)) {
-					PostsManager.getInstance().reverseDownvote(logged, Integer.parseInt(postId));
-				} else {
-					if (PostsManager.getInstance().getPostUpvotes().containsKey(postId)) {
-						if (PostsManager.getInstance().getPostUpvotes().get(postId).contains(logged)) {
-							PostsManager.getInstance().upvoteToDownvote(logged, Integer.parseInt(postId));
-						} else {
-							PostsManager.getInstance().downVotePost(logged, Integer.parseInt(postId));
-						}
-					} else {
-						PostsManager.getInstance().downVotePost(logged, Integer.parseInt(postId));
-					}
-				}
-
-			}
-		
+			PostsManager.getInstance().downVotePost(logged, Integer.parseInt(postId));
 			return "CommentsPage";
 		}else{
 			return "CommentsPage";
