@@ -198,7 +198,7 @@ background: #13232f;">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <a href="posts.jsp"> <img alt="MyGag" src="img/9gag-logo.png" height="55" width="55"> </a>
+               <a href="index"> <img alt="MyGag" src="img/9gag-logo.png" height="55" width="55"> </a>
                
                  
             </div>
@@ -251,8 +251,8 @@ background: #13232f;">
  							 <img class="dropbtn"  
 					src="profilePicture?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt="" height="55" width="55">  
   									<div class="dropdown-content"> 
-	    								<a href="/MyGag/Profile.jsp">My Profile</a> 
- 	    								<a href="/MyGag/ChangeSettings.jsp">Settings</a> 
+	    								<a href="profile">My Profile</a> 
+ 	    								<a href="changeSettings">Settings</a> 
 	    								<form action = "logOut" method = "post"> 
 	    								
  	   									<button class="dropbtnlog" type = "submit" >Logout</button> 
@@ -265,12 +265,14 @@ background: #13232f;">
 					</div> </li> 
 						</c:when>
 					</c:choose>	
-						
+					
 					<li>
-					<form action = "SearchServlet" method = "get">
+					<form action = "searchpost" method = "get">
 					<input class = " input[type=text] " onfocus = "this.style.borderColor = '#b4b4b4'" style = "background-image: url('img/searchicon.png');color: #b4b4b4"  type="text" name="title" required  placeholder="Search..">
 					</form>
 					</li>	
+					
+					
 					
                     
                 </ul>

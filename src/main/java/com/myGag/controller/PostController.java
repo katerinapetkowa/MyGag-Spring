@@ -143,10 +143,19 @@ public class PostController {
 			return "CommentsPage";
 		}
 	}
-
+@RequestMapping(value = "/searchpost", method = RequestMethod.GET)
+	public String searchPost(@RequestParam("title") String title, HttpServletRequest request){
+		if (UserController.isUserInSession(request)) {
+			PostsManager.getInstance().searchPosts(title);
+			request.setAttribute("title", title);
+			return "search";
+		}else{
+			return "search";
+	}
+}
 
 @RequestMapping(value = "/uploadpost", method = RequestMethod.GET)
-	public String welcome() {
+	public String uploadPost() {
 		return "UploadPost";
 	}
 

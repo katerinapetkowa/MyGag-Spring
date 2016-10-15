@@ -35,4 +35,31 @@ public class DetailController {
 	public String sportCategory() {
 		return "Sport";
 	}
+	
+	@RequestMapping(value = "/profile", method = RequestMethod.GET)
+	public String profile() {
+		return "Profile";
+	}
+	
+	@RequestMapping(value = "/changeSettings", method = RequestMethod.GET)
+	public String changeSettings() {
+		return "ChangeSettings";
+	}
+	@RequestMapping(value = "/changePassword", method = RequestMethod.GET)
+	public String changePassword() {
+		return "ChangePassword";
+	}
+	@RequestMapping(value = "/deleteAccount", method = RequestMethod.GET)
+	public String changeAccount() {
+		return "deletePage";
+	}
+	
+	@RequestMapping(value = "/upvotedPosts", method = RequestMethod.GET)
+	public String viewUpvotes() {
+		return "UpvotesPage";
+	}
+	@RequestMapping(value = "/commentedPosts", method = RequestMethod.GET)
+	public String viewCommentedPosts() {
+		return "Comments";
+	}
 }

@@ -80,8 +80,8 @@
  							 <img class="dropbtn" 
 					src="profilePicture?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt="" height="55" width="55"> 
   									<div class="dropdown-content">
-	    								<a href="/MyGag/Profile.jsp">My Profile</a>
-	    								<a href="/MyGag/ChangeSettings.jsp">Settings</a>
+	    								<a href="profile">My Profile</a>
+	    								<a href="changeSettings">Settings</a>
 	    								<form action = "logOut" method = "post">
 	    								
 	   									<button class="dropbtnlog" type = "submit" >Logout</button>
@@ -99,7 +99,7 @@
   									</div>
 						</div> </li>
 			       <li>
-					<form action = "SearchServlet" method = "get">
+					<form action = "searchpost" method = "get">
 					<input class = " input[type=text] " style = "color: #b4b4b4"  type="text" name="title" placeholder="Search..">
 					</form>
 					</li>
@@ -128,7 +128,7 @@
 				
 				
 				<center><img class="img-responsive"
-					src="PictureServlet?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt=""  width="100"></center>
+					src="profilePicture?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt=""  width="100"></center>
 				<center><h3 style = "color: #b4b4b4">${UsersManager.getInstance().getUser(sessionScope.loggedAs).getName()}</h3></center>
 				<center><h4 style = "color: #b4b4b4">${UsersManager.getInstance().getUser(sessionScope.loggedAs).getDescription()}</h4></center>
 <!-- 				<a style = "text-decoration: none"href = "deletePage.jsp"> Delete account</a> -->
@@ -146,14 +146,14 @@
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 					<li>
-                        <a style="border-bottom: solid #b4b4b4;font-size:18px;color:#222222" href="Profile.jsp">Posts</a>
+                        <a style="border-bottom: solid #b4b4b4;font-size:18px;color:#222222" href="profile">Posts</a>
                     </li>
                     
                     <li>
-                        <a style="font-size:18px;color:#222222" href="UpvotesPage.jsp">Upvotes</a>
+                        <a style="font-size:18px;color:#222222" href="upvotedPosts">Upvotes</a>
                     </li>
                     <li>
-                        <a style="font-size:18px;color:#222222" href="Comments.jsp">Comments</a>
+                        <a style="font-size:18px;color:#222222" href="commentedPosts">Comments</a>
                     </li>
               </ul>
               </div>

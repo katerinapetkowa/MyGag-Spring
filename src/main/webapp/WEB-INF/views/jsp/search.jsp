@@ -40,12 +40,7 @@
 
 
 <body>
-	<% if(session.getAttribute("loggedAs") == null){ 
 	
-		request.getRequestDispatcher("index.html").forward(request, response);
-	
-	}
-	%>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -85,16 +80,21 @@
                     <li>
                         <a href="foodposts">Food</a>
                     </li>
+                    <c:choose>
+                    <c:when test="${sessionScope.loggedAs != null}">
                     <li>
                         <a href="uploadpost"> Upload </a>
                     </li>
-                     
+                    </c:when>
+                    </c:choose>
+                     <c:choose>
+                     <c:when test='${sessionScope.loggedAs != null}'>
                         <li> <div class="dropdown">
  							 <img class="dropbtn" 
 					src="profilePicture?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt="" height="55" width="55"> 
   									<div class="dropdown-content">
-	    								<a href="/MyGag/Profile.jsp">My Profile</a>
-	    								<a href="/MyGag/ChangeSettings.jsp">Settings</a>
+	    								<a href="profile">My Profile</a>
+	    								<a href="changeSettings">Settings</a>
 	    								<form action = "logOut" method = "post">
 	    								
 	   									<button class="dropbtnlog" type = "submit" >Logout</button>
@@ -111,9 +111,11 @@
 	    						
   									</div>
 						</div> </li>
+						</c:when>
+						</c:choose>
 					<li>
-					<form action = "SearchServlet" method = "get">
-					<input class = " input[type=text] " style = "color: #b4b4b4"  type="text" name="title" placeholder="Search..">
+					<form action = "searchpost" method = "get">
+					<input class = " input[type=text] " onfocus = "this.style.borderColor = '#b4b4b4'" style = "background-image: url('img/searchicon.png');color: #b4b4b4"  type="text" name="title" required  placeholder="Search..">
 					</form>
 					</li>	
 					

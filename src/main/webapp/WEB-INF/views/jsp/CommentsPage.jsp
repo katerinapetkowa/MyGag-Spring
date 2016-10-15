@@ -149,8 +149,8 @@ function action2()
  							 <img class="dropbtn" 
 					src="profilePicture?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt="" height="55" width="55"> 
   									<div class="dropdown-content">
-	    								<a style = "text-decoration: none" onmouseover="this.style.color = '#b4b4b4'" href="/MyGag/Profile.jsp">My Profile</a>
-	    								<a style = "text-decoration: none" onmouseover="this.style.color = '#b4b4b4'" href="/MyGag/ChangeSettings.jsp">Settings</a>
+	    								<a style = "text-decoration: none" onmouseover="this.style.color = '#b4b4b4'" href="profile">My Profile</a>
+	    								<a style = "text-decoration: none" onmouseover="this.style.color = '#b4b4b4'" href="changeSettings">Settings</a>
 	    								<form action = "logOut" method = "post">
 	    								
 	   									<button class="dropbtnlog" type = "submit" >Logout</button>
@@ -168,7 +168,7 @@ function action2()
   									</div>
 						</div> </li>
 					<li>
-					<form action = "SearchServlet" method = "get">
+					<form action = "searchpost" method = "get">
 					<input class = " input[type=text] " onfocus = "this.style.borderColor = '#b4b4b4'" style = "background-image: url('img/searchicon.png');color: #b4b4b4"  type="text" name="title" required  placeholder="Search..">
 					</form>
 					</li>
