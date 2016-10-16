@@ -41,14 +41,7 @@ public class DetailController {
 		return "Profile";
 	}
 	
-	@RequestMapping(value = "/changeSettings", method = RequestMethod.GET)
-	public String changeSettings() {
-		return "ChangeSettings";
-	}
-	@RequestMapping(value = "/changePassword", method = RequestMethod.GET)
-	public String changePassword() {
-		return "ChangePassword";
-	}
+	
 	@RequestMapping(value = "/deleteAccount", method = RequestMethod.GET)
 	public String changeAccount() {
 		return "deletePage";

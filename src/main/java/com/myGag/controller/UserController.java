@@ -112,6 +112,48 @@ public class UserController {
 		return request.getSession().getAttribute("loggedAs") != null;
 	}
 	
+	@RequestMapping(value = "/changeSettings", method = RequestMethod.POST)
+	public String changeProfile(HttpSession session, HttpServletResponse response, @RequestParam("name") String name, 
+			@RequestParam("email") String email, @RequestParam("description") String description,
+			 @RequestParam("profilePicture") MultipartFile profilePicture) throws IOException{
+		String username = session.getAttribute("loggedAs").toString();
+		if(!profilePicture.getContentType().split("/")[1].equals("octet-stream")){
+		InputStream profilePicStream = null;
+		try {
+			profilePicStream = profilePicture.getInputStream();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		File dir = new File("D:\\MyGagPictures\\userProfilePics");
+		if (!dir.exists()) {
+			dir.mkdirs();
+		}
+		File profilePicFile = new File(dir, username + "-profile-pic." + profilePicture.getContentType().split("/")[1]);
+		System.out.println("Try to save file with name: " + profilePicFile.getName());
+		System.out.println("abs. path = " + profilePicFile.getAbsolutePath());
+		Files.copy(profilePicStream, profilePicFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+	}
+		UsersManager.getInstance().changeProfile(username, name, email, description);
+		response.setHeader("Pragma", "No-cache");
+		response.setDateHeader("Expires", 0);
+		response.setHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0");
+		return "settings";
+	}
+	
+	
+	@RequestMapping(value = "/changePassword", method = RequestMethod.POST)
+	public String changePassword(@RequestParam("password") String password , HttpSession session, HttpServletResponse response){
+		String username = session.getAttribute("loggedAs").toString();
+		String encryptedPassword = UsersManager.getInstance().passwordToMD5(password);
+		UsersManager.getInstance().changePassword(username, encryptedPassword);
+		session.invalidate();
+		response.setHeader("Pragma", "No-cache");
+		response.setDateHeader("Expires", 0);
+		response.setHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0");
+		return "index";
+	}
+	
 	
 	private static boolean validateData(String name, String email, String password) {
 		if ((name != null && email != null && password != null)) {
