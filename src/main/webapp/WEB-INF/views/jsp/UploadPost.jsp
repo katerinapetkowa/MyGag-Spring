@@ -41,7 +41,7 @@
               <label>
                 Title<span class="req">*</span>
               </label>
-              <input type="text" name="title"  maxlenght="140" required autocomplete="off"/>
+              <input type="text" name="title"  maxlength="140" required autocomplete="off"/>
               <input id="username" name="username" type="hidden" value="<c:out value="${sessionScope.loggedAs}"></c:out>" size="30" required>
             </div>           
          

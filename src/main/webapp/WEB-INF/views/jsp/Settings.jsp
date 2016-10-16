@@ -5,6 +5,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.myGag.model.PostsManager"%>
 <%@ page import="com.myGag.model.Post"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -157,10 +159,11 @@
               </ul>
               
 			<div>
+			
 			<div style="margin-left:25%;padding:1px 16px;height:1000px;">
 			<h1> Account </h1>
 			<br>
-			
+			<form action="changeSettings" method="post" enctype="multipart/form-data">
 				<small style="color: #000000;" ><b>Avatar</b> </small>
 				<img class="img-responsive"
 					src="profilePicture?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt="" width="100">
@@ -173,7 +176,8 @@
    					
 			
 				<small style="color: #000000" ><b>Your name</b> </small>
-			<input type = "text" name = "name "style = "border-radius:0px;width: 100%;padding: 12px 20px;margin: 2px 0;display: inline-block; border: 1px solid #ccc;
+				<input id="username" name="username" type="hidden" value="<c:out value="${sessionScope.loggedAs}"></c:out>" size="30" required>
+			<input type = "text" id = "name"name = "name" style = "border-radius:0px;width: 100%;padding: 12px 20px;margin: 2px 0;display: inline-block; border: 1px solid #ccc;
    					box-sizing: border-box;background-color:#ffffff; height:45px" 
    					onfocus = "this.style.borderColor = 'green'"
    					onfocusout = "this.style.borderColor = '#a0b3b0'"
@@ -204,7 +208,7 @@
    					<br>
    					<br>
    					
-   					<form action="ChangeProfileServlet" method="post" enctype="multipart/form-data">
+   					
 				 		
 				 		<button class="button button-block" style = "background-color:#1ab188" onmouseover = "this.style.backgroundColor = '#179b77'" onmouseout = "this.style.backgroundColor = '#1ab188'"type="submit">Save Changes</button>
 				

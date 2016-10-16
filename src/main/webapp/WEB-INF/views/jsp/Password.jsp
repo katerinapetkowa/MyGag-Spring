@@ -162,7 +162,7 @@
 			<h1> Password </h1>
 			<br>
 			
-				
+			<form id="submitForm" class="signup" action="changePassword" method="post">	
    					
 			
 				<small style="color: #000000" ><b>Password</b> </small>
@@ -197,7 +197,7 @@
    					<br>
    					<br>
    					
-   					<form id="submitForm" class="signup" action="ChangePasswordServlet" method="post">
+   					
 				 		
 				 		<button class="button button-block" style = "background-color:#1ab188" onmouseover = "this.style.backgroundColor = '#179b77'" onmouseout = "this.style.backgroundColor = '#1ab188'"type="button" onclick="asd()">Save Changes</button>
 				
@@ -248,7 +248,7 @@
 			}
 		}
 	}	
-
+</script>
 	<!-- jQuery -->
 	<script src="js/jquery.js"></script>
 

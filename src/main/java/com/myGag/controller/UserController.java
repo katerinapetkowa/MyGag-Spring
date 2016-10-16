@@ -138,7 +138,7 @@ public class UserController {
 		response.setHeader("Pragma", "No-cache");
 		response.setDateHeader("Expires", 0);
 		response.setHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0");
-		return "settings";
+		return "Settings";
 	}
 	
 	
