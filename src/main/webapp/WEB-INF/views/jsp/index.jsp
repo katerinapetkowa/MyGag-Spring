@@ -36,6 +36,10 @@
 
     
         <link rel="stylesheet" href="css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -49,7 +53,7 @@
 
 <body>
 	
-	<div id="id01" class="modal"  >
+	<div id="myModal" class="modal"  >
 	 <div class="form" style = " opacity: 1 !important;
     filter: alpha(opacity=100);
 background: #13232f;" >
@@ -58,14 +62,15 @@ background: #13232f;" >
      
       <div class="tab-content" >
         <form id="loginForm" class ="login" action="javasript:validateLogin()" method="POST">  
-<!--         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span> -->
+<!--          <span  class="close" title="Close Modal">x</span>  --> 
+			
           <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Please log in!</h1>
           
           
           
    			
             <div class="field-wrap">
-              <label>
+              <label style = "font-size: 19px">
                 Username<span class="req">*</span>
               </label>
               <input type="text" name="username" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
@@ -77,10 +82,12 @@ background: #13232f;" >
           
           
           <div class="field-wrap">
-            <label>
+            <label style = "font-size: 19px">
               Password<span class="req">*</span>
             </label>
-            <input type="password" name="password" maxlength="30" required autocomplete="off"/>
+            <input type="password" name="password" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
+              maxlength="30" required autocomplete="off"/>
           </div>
           <div id="message"></div>
           <button class="button button-block"  type="submit" onclick="validateLogin()">Log in</button>
@@ -103,7 +110,7 @@ background: #13232f;" >
            
 </div>
     
-    <div id="id02" class="modal">
+    <div id="id02" class="modal" >
 	 <div class="form" style = " opacity: 1 !important;
     filter: alpha(opacity=100);
 background: #13232f;">
@@ -112,14 +119,14 @@ background: #13232f;">
      
       <div class="tab-content">
         <form class ="signup" action="register" method="POST" enctype="multipart/form-data">  
-        <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+<!--         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span> -->
           <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Sign up</h1>
           
           
           
    			
             <div class="field-wrap">
-              <label>
+              <label style = "font-size: 19px">
                 Name<span class="req">*</span>
               </label>
               <input type="text" name="name" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
@@ -129,7 +136,7 @@ background: #13232f;">
           
 
           <div class="field-wrap">
-              <label>
+              <label style = "font-size: 19px">
                 Username<span class="req">*</span>
               </label>
               <input type="text" name="username" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
@@ -138,29 +145,37 @@ background: #13232f;">
             </div>
           
           <div class="field-wrap">
-              <label>
+              <label style = "font-size: 19px">
                 Email<span class="req">*</span>
               </label>
-              <input type="email" name="email" maxlength="40" required autocomplete="off"/>
+              <input type="email" name="email" maxlength="40" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
+              required autocomplete="off"/>
             </div>   
           
           <div class="field-wrap">
-            <label>
+            <label style = "font-size: 19px">
               Password<span class="req">*</span>
             </label>
-            <input type="password" name="password" maxlength="30" required autocomplete="off"/>
+            <input type="password" name="password" maxlength="30" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
+              required autocomplete="off"/>
           </div>
           
            <div class="field-wrap">
-            <label>
+            <label style = "font-size: 19px">
               Confirm Password<span class="req">*</span>
             </label>
-            <input type="password"  name="password2" id="confirm_password" maxlength="30" required autocomplete="off"/>
+            <input type="password"  name="password2" id="confirm_password" maxlength="30" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
+              required autocomplete="off"/>
           </div>
           
  		<div class="field-wrap">
          
-            <input type="file"  name="profilePicture" accept="image/*" required autocomplete="off"/>
+            <input type="file"  name="profilePicture" accept="image/*" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
+              required autocomplete="off"/>
           </div>   
           
           <button class="button button-block"  type="submit">Register</button>
@@ -236,10 +251,10 @@ background: #13232f;">
                     <c:choose>
                     <c:when test="${sessionScope.loggedAs == null}">
                     <li>
-                    <button class="dropbtnlog" onclick="document.getElementById('id01').style.display='block';document.getElementById('id02').style.display='none'" style="width:auto;"  >Log in</button>
+                    <button class="dropbtnlog" id="myBtn" onclick= "document.getElementById('id02').style.display='none'" style="width:auto;"  >Log in</button>
                     </li>
                      <li>
-                    <button class="dropbtnlog" onclick="document.getElementById('id02').style.display='block';document.getElementById('id01').style.display='none'" style="width:auto;"  >Sign up</button>
+                    <button class="dropbtnlog" id = "register" onclick="document.getElementById('id02').style.display='block';document.getElementById('myModal').style.display='none'" style="width:auto;"  >Sign up</button>
                     </li>
                     </c:when>
                     </c:choose>
@@ -315,33 +330,39 @@ background: #13232f;">
 			 </div>
          
 <script>
-/* var modal = document.getElementById('id01');
+//  var modal = document.getElementById('id01');
 
-modal.addEventListener('click', function(event){
+// modal.addEventListener('window.onclick', function(event){
 	
-	modal.style.display = 'none';
-}); */
+// 	modal.style.display = 'none';
+// }); 
+//Closing the log in modal box
 
-// Get the modal
- var modal = document.getElementById('id01');
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myModal").modal();
+    });
+});
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-} 
+
+
 </script>
 <script >
-//Get the modal
-var modal2 = document.getElementById('id02');
+// //Get the modal
+// var modal2 = document.getElementById('id02');
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal2) {
-        modal2.style.display = "none";
-    }
-}
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//     if (event.target == modal2) {
+//         modal2.style.display = "none";
+//     }
+// }
+// Closing the register modal box
+$(document).ready(function(){
+    $("#register").click(function(){
+        $("#id02").modal();
+    });
+});
 </script>
 
   
