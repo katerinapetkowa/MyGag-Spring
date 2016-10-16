@@ -83,7 +83,7 @@ background: #13232f;">
             </label>
             <input type="password" name="password" maxlength="30" required autocomplete="off"/>
           </div>
-          
+          <div id="message"></div>
           <button class="button button-block"  type="submit" onclick="validateLogin()">Log in</button>
          <br>
 <!--           <button class="button button-block" type="submit" onclick="window.location.href='/MyGag/register.html'"> Register</button> -->

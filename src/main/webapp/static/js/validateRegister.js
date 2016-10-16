@@ -1,9 +1,9 @@
 function validateRegister(){
 	var form = $('#registerForm');
-	$.post("registerValidate", form.serialize()).then(showMessage);
+	$.post("registerValidate", form.serialize()).then(showMesage);
 }
 
-function showMessage(results){
+function showMesage(results){
 	if(results == 'success'){
 		$('#message2').html("<font color='green'>You registerred successfully</font>");
 		setTimeout(function(){

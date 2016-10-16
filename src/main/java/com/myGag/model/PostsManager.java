@@ -2,6 +2,7 @@ package com.myGag.model;
 
 import java.time.LocalDateTime;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -73,9 +74,16 @@ public class PostsManager {
 		return (upvotes - downvotes);
 	}
 
-	public Map<Integer, Post> getFreshPosts() {
-		Map<Integer, Post> freshPosts = new TreeMap<>(Collections.reverseOrder());
-		freshPosts.putAll(PostsManager.getInstance().getAllPosts());
+	public Set<Post> getFreshPosts() {
+		Set<Post> freshPosts = new TreeSet<Post>(new Comparator<Post>(){
+			@Override
+			public int compare(Post p1, Post p2) {
+				return p1.getUploadDate().compareTo(p2.getUploadDate());
+			}
+		});
+		for (Post p: PostsManager.getInstance().getAllPosts().values()){
+			freshPosts.add(p);
+		}
 		return freshPosts;
 	}
 
