@@ -40,6 +40,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -47,13 +48,14 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    	
 	<script src="js/loginValidate.js"></script>
 	<script src="js/validateRegister.js"></script>
 </head>
 
 
 <body>
-	
+
 	<div id="myModal" class="modal"  >
 	 <div class="form" style = " opacity: 1 !important;
     filter: alpha(opacity=100);
@@ -117,10 +119,11 @@ background: #13232f;" >
 background: #13232f;">
 	 
 <!-- 	 <form class="modal-content animate" action=""> -->
-     
+
+  	<script src="js/forms.js"></script>
       <div class="tab-content">
 
-        <form id ="registerForm" class ="signup" action="javascript:validateRegister()" method="POST" enctype="multipart/form-data">  
+        <form id ="registerForm" class ="signup" action="javascript:validateRegister()" enctype="multipart/form-data">  
 <!--         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span> -->
 
           <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Sign up</h1>
@@ -132,7 +135,7 @@ background: #13232f;">
               <label style = "font-size: 19px">
                 Name<span class="req">*</span>
               </label>
-              <input type="text" name="name" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              <input id="name" type="text" name="name" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               maxlength="30" required autocomplete="off"/>
             </div>
@@ -142,7 +145,7 @@ background: #13232f;">
               <label style = "font-size: 19px">
                 Username<span class="req">*</span>
               </label>
-              <input type="text" name="username" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              <input id="username" type="text" name="username" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               maxlength="30" required autocomplete="off"/>
             </div>
@@ -176,12 +179,12 @@ background: #13232f;">
           
  		<div class="field-wrap">
          
-            <input type="file"  name="profilePicture" accept="image/*" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+            <input type="file" id="fileMaina"  name="profilePicture" accept="image/*" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               required autocomplete="off"/>
           </div>   
           <div id="message2"></div>
-          <button class="button button-block" type="submit" onclick="validateRegister()">Register</button>
+          <button class="button button-block" type="submit">Register</button>
          <br>
 <!--           <button class="button button-block" type="submit" onclick="window.location.href='/MyGag/register.html'"> Register</button> -->
           
@@ -425,6 +428,7 @@ $(document).ready(function(){
     });
 });
 </script>
+
 <script >
 // //Get the modal
 // var modal2 = document.getElementById('id02');
@@ -441,6 +445,41 @@ $(document).ready(function(){
         $("#id02").modal();
     });
 });
+
+
+
+
+function validateRegister(){
+	var form = $('#registerForm');
+	form.ajaxSubmit({
+		type : 'post',
+		url : 'registerValidate',
+		async: true,
+		success : function(results){
+			if(results!=null && results != ""){
+				showMesage(results);					
+				
+			}else{
+				alert("Some error occured, try again.");
+			}
+		}
+	})
+}
+
+function showMesage(results){
+	if(results == 'success'){
+		$('#message2').html("<font color='green'>You registerred successfully</font>");
+		setTimeout(function(){
+			window.location.href = "index";
+		}, 1000)
+	}else if (results == 'usernameTaken'){
+		$('#message2').html("<font color='red'>Username already taken</font>");
+	}else{
+		$('#message2').html("<font color='red'>Passwords don't match</font>")
+	}
+}
+
+
 </script>
 
   
@@ -455,5 +494,5 @@ $(document).ready(function(){
     <script src="js/bootstrap.min.js"></script>
 
 </body>
-
+<script src="http://malsup.github.com/jquery.form.js"></script>
 </html>
