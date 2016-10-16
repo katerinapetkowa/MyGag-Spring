@@ -227,13 +227,14 @@ public class PostDAO {
 		int postId = 0;
 		try {
 			PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(
-					"INSERT INTO posts (username, category_id, title, upload_date, post_picture) VALUES (?, (SELECT category_id FROM categories WHERE category_name ='"
-							+ category + "'), ?, ?, ?);",
+					"INSERT INTO posts (username, category_id, title, upload_date, post_picture) VALUES "
+					+ "(?, (SELECT category_id FROM categories WHERE category_name = ? ), ?, ?, ?);",
 					Statement.RETURN_GENERATED_KEYS);
 			st.setString(1, username);
+			st.setString(2, category);
 			st.setString(2, title);
-			st.setTimestamp(3, Timestamp.valueOf(uploadDate));
-			st.setString(4, picture);
+			st.setTimestamp(4, Timestamp.valueOf(uploadDate));
+			st.setString(5, picture);
 			st.executeUpdate();
 			ResultSet rs = st.getGeneratedKeys();
 			if (rs.next()) {

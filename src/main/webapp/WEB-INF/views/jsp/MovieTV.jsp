@@ -43,7 +43,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+	<script src="js/loginValidate.js"></script>
 </head>
 
 
@@ -57,7 +57,7 @@ background: #13232f;" >
 <!-- 	 <form class="modal-content animate" action=""> -->
      
       <div class="tab-content" >
-        <form class ="login" action="login" method="POST">  
+        <form id="loginForm" class ="login" action="javasript:validateLogin()" method="POST">  
 <!--         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span> -->
           <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Please log in!</h1>
           
@@ -83,7 +83,7 @@ background: #13232f;" >
             <input type="password" name="password" maxlength="30" required autocomplete="off"/>
           </div>
           
-          <button class="button button-block"  type="submit">Log in</button>
+          <button class="button button-block"  type="submit" onclick="validateLogin()">Log in</button>
          <br>
 <!--           <button class="button button-block" type="submit" onclick="window.location.href='/MyGag/register.html'"> Register</button> -->
           
