@@ -75,13 +75,14 @@
                 </h1>
                 <h5> This will delete your account and all of its content.</h5>
                 
-                <button class = " dropbtnlog "  style = "border-radius:5px" type = "submit" onclick="window.location.href='/MyGag/posts.jsp'"> No, I don't want to do that </button>
+                <button class = " dropbtnlog "  style = "background-color:#1ab188;border-radius:3px;color:white" onmouseover = "this.style.backgroundColor = '#179b77'" onmouseout = "this.style.backgroundColor = '#1ab188'" type = "submit" onclick="window.location.href='index'"> No, I don't want to do that </button>
                 <br>
                 
                 
                 <form action = "deleteAccount" method = "post">
                 <input id="username" name="username" type="hidden" value="<c:out value="${sessionScope.loggedAs}"></c:out>" size="30" required>
-                <button style = "background:none!important; border:none; padding:0!important;font: inherit;border-bottom:none;cursor: pointer" onmouseover="this.style.color = '#808080'" onmouseout="this.style.color = '#222222'"> I want to delete my account.</button>
+                <button style = "background:none!important; border:none; padding:0!important;font: inherit;border-bottom:none;cursor: pointer"  onmouseover = "this.style.color = '#179b77'" onmouseout = "this.style.color = 'black'"> I want to delete my account.</button>
+                
                 </form>
                 </div>
              </div>

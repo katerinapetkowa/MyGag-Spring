@@ -67,4 +67,9 @@ public class DetailController {
 	public String settings() {
 		return "Settings";
 	}
+	
+	@RequestMapping(value = "/password", method = RequestMethod.GET)
+	public String password() {
+		return "Password";
+	}
 }

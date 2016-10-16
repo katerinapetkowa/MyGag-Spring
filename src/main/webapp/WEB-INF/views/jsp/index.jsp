@@ -163,7 +163,7 @@ background: #13232f;">
             <input type="file"  name="profilePicture" accept="image/*" required autocomplete="off"/>
           </div>   
           
-          <button class="button button-block" type="submit">Register</button>
+          <button class="button button-block"  type="submit">Register</button>
          <br>
 <!--           <button class="button button-block" type="submit" onclick="window.location.href='/MyGag/register.html'"> Register</button> -->
           

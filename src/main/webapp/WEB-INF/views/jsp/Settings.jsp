@@ -81,7 +81,7 @@
 					src="profilePicture?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt="" height="55" width="55"> 
   									<div class="dropdown-content">
 	    								<a href="profile">My Profile</a>
-	    								<a href="changeSettings">Settings</a>
+	    								<a href="settings">Settings</a>
 	    								<form action = "logOut" method = "post">
 	    								
 	   									<button class="dropbtnlog" type = "submit" >Logout</button>
@@ -147,16 +147,71 @@
     width: 200px;
     background-color: #ffffff;">
 					<li>
-                        <a style="border-bottom: solid #b4b4b4;display: block;font-size:18px;color:#222222" href="profile">Account</a>
+                        <a style="border-radius:3px;background-color:#1ab188;width:150px;display: block;font-size:18px;color:#ffffff" href="settings">Account</a>
                     </li>
                     
                     <li>
-                        <a style="font-size:18px;color:#222222" href="upvotedPosts">Password</a>
+                        <a style="font-size:18px;color:#000000;width:150px;display:block" href="password">Password</a>
                     </li>
                     
               </ul>
+              
 			<div>
+			<div style="margin-left:25%;padding:1px 16px;height:1000px;">
+			<h1> Account </h1>
+			<br>
 			
+				<small style="color: #000000;" ><b>Avatar</b> </small>
+				<img class="img-responsive"
+					src="profilePicture?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt="" width="100">
+			<br>
+			<input  type = "file" name = "profilePicture" accept="image/*"  
+   					autocomplete="off" >
+   				
+   				<br>
+   				<br>
+   					
+			
+				<small style="color: #000000" ><b>Your name</b> </small>
+			<input type = "text" name = "name "style = "border-radius:0px;width: 100%;padding: 12px 20px;margin: 2px 0;display: inline-block; border: 1px solid #ccc;
+   					box-sizing: border-box;background-color:#ffffff; height:45px" 
+   					onfocus = "this.style.borderColor = 'green'"
+   					onfocusout = "this.style.borderColor = '#a0b3b0'"
+   					maxlength="50" value="${UsersManager.getInstance().getUser(sessionScope.loggedAs).getName()}" 
+   					required autocomplete="off" >
+   			<br>	
+   			<br>	
+   			
+   				<small style="color: #000000" ><b>Email</b> </small>
+			<input type = "email" name = "email" style = ";width: 100%;padding: 12px 20px;margin: 2px 0;display: inline-block; border: 1px solid #ccc;
+   					box-sizing: border-box;background-color:#ffffff; height:45px" 
+   					onfocus = "this.style.borderColor = 'green'"
+   					onfocusout = "this.style.borderColor = '#a0b3b0'"
+   					maxlength="40" value="${UsersManager.getInstance().getUser(sessionScope.loggedAs).getEmail()}" 
+   					required autocomplete="off">
+   					
+   				<br>
+   				<br>
+   					
+   				<small style="color: #000000" ><b>Tell people who you are</b> </small>
+			<textarea  name = "description" id = "description" style = ";width: 100%;padding: 12px 20px;margin: 2px 0;display: inline-block; border: 1px solid #ccc;
+   					box-sizing: border-box;background-color:#ffffff; height:100px" 
+   					onfocus = "this.style.borderColor = 'green'"
+   					onfocusout = "this.style.borderColor = '#a0b3b0'"
+   					maxlength="120"  
+   					required autocomplete="off">${UsersManager.getInstance().getUser(sessionScope.loggedAs).getDescription()}</textarea>
+   					
+   					<br>
+   					<br>
+   					
+   					<form action="ChangeProfileServlet" method="post" enctype="multipart/form-data">
+				 		
+				 		<button class="button button-block" style = "background-color:#1ab188" onmouseover = "this.style.backgroundColor = '#179b77'" onmouseout = "this.style.backgroundColor = '#1ab188'"type="submit">Save Changes</button>
+				
+				</form>
+				
+					<br>
+						<a style = "text-decoration: none; color: black" onmouseover = "this.style.color = '#179b77'" onmouseout = "this.style.color = 'black'"href = "deleteAccount"> Delete account</a>
 			</div>
 		</div>
 
