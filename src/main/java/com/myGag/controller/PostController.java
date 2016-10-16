@@ -90,7 +90,7 @@ public class PostController {
 			Post post = PostsManager.getInstance().getPost(Integer.parseInt(postId));
 			return "CommentsPage";
 		}else{
-			return "CommentsPage";
+			return "DetailsPostWhenNotLogged";
 		}
 	}
 @RequestMapping(value = "/searchpost", method = RequestMethod.GET)

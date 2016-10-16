@@ -120,7 +120,7 @@ background: #13232f;">
       <div class="tab-content">
 
         <form id="registerForm" class ="signup" action="register" method="POST" enctype="multipart/form-data">  
-        <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+<!--         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span> -->
 
           <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Sign up</h1>
           
@@ -186,7 +186,66 @@ background: #13232f;">
           
           </form>
 
+    </div>
+    </div>
+  </div>  
     
+     <div id="id03" class="modal" >
+	 <div class="form" style = " opacity: 1 !important;
+    filter: alpha(opacity=100);
+background: #13232f;">
+	 
+<!-- 	 <form class="modal-content animate" action=""> -->
+     
+      <div class="tab-content">
+
+        <form  action="createpost" method="post" enctype="multipart/form-data"> 
+<!--         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span> -->
+
+          <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Upload Post</h1>
+          
+          
+          
+   			
+            <div class="field-wrap">
+              <label style = "font-size: 19px">
+                Title<span class="req">*</span>
+              </label>
+              <input type="text" name="title" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
+              maxlength="140" required autocomplete="off"/>
+              <input id="username" name="username" type="hidden" value="<c:out value="${sessionScope.loggedAs}"></c:out>" size="30" required>
+            </div>
+            
+               
+ 		<div class="field-wrap">
+         
+            <input type="file"  name="postPicture" accept="image/*" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
+              required autocomplete="off"/>
+          </div> 
+          
+          <div class="field-wrap">  
+ 		   	
+ 		     	<h2 style = "color: #a0b3b0"><strong>Choose category: </strong></h2>
+ 		    
+ 		     	<select name = "category"> 
+ 		     	  
+				  <option value="Funny"> Funny </option>
+				  <option value="MovieTV"> MovieTV </option>
+				  <option value="Sport"> Sport </option>
+				  <option value="Food"> Food </option>
+				 </select>
+			 	
+ 		 </div>   
+           
+          
+ 		
+          <button class="button button-block"  type="submit">Upload</button>
+         <br>
+<!--           <button class="button button-block" type="submit" onclick="window.location.href='/MyGag/register.html'"> Register</button> -->
+          
+          </form>
         
         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
@@ -246,17 +305,18 @@ background: #13232f;">
                     <c:choose>
                     <c:when test="${sessionScope.loggedAs != null}">
                     <li>
-                        <a href="uploadpost"> Upload </a>
+                    <button class="dropbtnlog" id = "upload" onclick="document.getElementById('id03').style.display='block'" style="width:auto;" >Upload</button> 
+
                     </li>
                     </c:when>
                     </c:choose>
                     <c:choose>
                     <c:when test="${sessionScope.loggedAs == null}">
                     <li>
-                    <button class="dropbtnlog" id="myBtn" onclick= "document.getElementById('id02').style.display='none'" style="width:auto;"  >Log in</button>
+                    <button class="dropbtnlog" id="myBtn" onclick= "document.getElementById('id02').style.display='none';document.getElementById('myModal').style.display='block;" style="width:auto;"  >Log in</button>
                     </li>
                      <li>
-                    <button class="dropbtnlog" id = "register" onclick="document.getElementById('id02').style.display='block';document.getElementById('myModal').style.display='none'" style="width:auto;"  >Sign up</button>
+                    <button class="dropbtnlog" id = "register" onclick="document.getElementById('id02').style.display='block';document.getElementById('myModal').style.display='none';" style="width:auto;" >Sign up</button>
                     </li>
                     </c:when>
                     </c:choose>
@@ -268,8 +328,8 @@ background: #13232f;">
  							 <img class="dropbtn"  
 					src="profilePicture?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt="" height="55" width="55">  
   									<div class="dropdown-content"> 
-	    								<a href="profile">My Profile</a> 
- 	    								<a href="settings">Settings</a> 
+	    								<a style = "text-decoration: none" onmouseover="this.style.color = '#b4b4b4'" href="profile">My Profile</a>
+	    								<a style = "text-decoration: none" onmouseover="this.style.color = '#b4b4b4'" href="settings">Settings</a>
 	    								<form action = "logOut" method = "post"> 
 	    								
  	   									<button class="dropbtnlog" type = "submit" >Logout</button> 
@@ -348,6 +408,15 @@ $(document).ready(function(){
 
 
 
+</script>
+
+<script>
+
+$(document).ready(function(){
+    $("#upload").click(function(){
+        $("#id03").modal();
+    });
+});
 </script>
 <script >
 // //Get the modal
