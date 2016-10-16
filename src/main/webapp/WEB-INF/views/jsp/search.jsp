@@ -327,8 +327,8 @@ background: #13232f;">
  							 <img class="dropbtn" 
 					src="profilePicture?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt="" height="55" width="55"> 
   									<div class="dropdown-content">
-	    								<a href="profile">My Profile</a>
-	    								<a href="settings">Settings</a>
+	    								<a style = "text-decoration: none" onmouseover="this.style.color = '#b4b4b4'" href="profile">My Profile</a>
+	    								<a style = "text-decoration: none" onmouseover="this.style.color = '#b4b4b4'" href="settings">Settings</a>
 	    								<form action = "logOut" method = "post">
 	    								
 	   									<button class="dropbtnlog" type = "submit" >Logout</button>

@@ -120,7 +120,7 @@ background: #13232f;">
      
       <div class="tab-content">
 
-        <form id="registerForm" class ="signup" action="register" method="POST" enctype="multipart/form-data">  
+        <form id ="registerForm" class ="signup" action="javascript:validateRegister()" method="POST" enctype="multipart/form-data">  
 <!--         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span> -->
 
           <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Sign up</h1>
@@ -180,13 +180,19 @@ background: #13232f;">
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               required autocomplete="off"/>
           </div>   
-          
-          <button class="button button-block"  type="submit">Register</button>
+          <div id="message2"></div>
+          <button class="button button-block" type="submit" onclick="validateRegister()">Register</button>
          <br>
 <!--           <button class="button button-block" type="submit" onclick="window.location.href='/MyGag/register.html'"> Register</button> -->
           
           </form>
+ <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
+        <script src="js/alex.js"></script> 
+        
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+        <script src="js/index.js"></script>
     </div>
     </div>
   </div>  

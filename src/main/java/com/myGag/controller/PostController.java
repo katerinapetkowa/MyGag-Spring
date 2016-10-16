@@ -63,9 +63,9 @@ public class PostController {
 		if (UserController.isUserInSession(request)) {
 			String logged = session.getAttribute("loggedAs").toString();
 			PostsManager.getInstance().upVotePost(logged, Integer.parseInt(postId));
-			return "CommentsPage";
+			return "DetailsPost";
 		} else {
-			return "CommentsPage";
+			return "DetailsPost";
 		}
 	}
 
@@ -78,9 +78,9 @@ public class PostController {
 		if (UserController.isUserInSession(request)) {
 			String logged = session.getAttribute("loggedAs").toString();
 			PostsManager.getInstance().downVotePost(logged, Integer.parseInt(postId));
-			return "CommentsPage";
+			return "DetailsPost";
 		}else{
-			return "CommentsPage";
+			return "DetailsPost";
 		}
 	}
 
@@ -88,7 +88,7 @@ public class PostController {
 	public String viewPost(@RequestParam("post_id") String postId, HttpServletRequest request){
 		if (UserController.isUserInSession(request)) {
 			Post post = PostsManager.getInstance().getPost(Integer.parseInt(postId));
-			return "CommentsPage";
+			return "DetailsPost";
 		}else{
 			return "DetailsPostWhenNotLogged";
 		}

@@ -55,6 +55,9 @@
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <script src="js/loginValidate.js"></script>
+	<script src="js/validateRegister.js"></script>
 <script>
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
@@ -178,7 +181,7 @@ background: #13232f;">
      
       <div class="tab-content">
 
-        <form id="registerForm" class ="signup" action="register" method="POST" enctype="multipart/form-data">  
+        <form id ="registerForm" class ="signup" action="javascript:validateRegister()" method="POST" enctype="multipart/form-data">    
 <!--         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span> -->
 
           <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Sign up</h1>
@@ -239,7 +242,8 @@ background: #13232f;">
               required autocomplete="off"/>
           </div>   
           
-          <button class="button button-block"  type="submit">Register</button>
+          <div id="message2"></div>
+          <button class="button button-block" type="submit" onclick="validateRegister()">Register</button>
          <br>
 <!--           <button class="button button-block" type="submit" onclick="window.location.href='/MyGag/register.html'"> Register</button> -->
           

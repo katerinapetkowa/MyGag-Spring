@@ -41,9 +41,16 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link rel="stylesheet" href="css/normalize.css">
+
     
+        <link rel="stylesheet" href="css/style.css">
     
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
@@ -101,6 +108,77 @@ function action2()
 </head>
 
 <body>
+
+ <div id="id03" class="modal" >
+	 <div class="form" style = " opacity: 1 !important;
+    filter: alpha(opacity=100);
+background: #13232f;">
+	 
+<!-- 	 <form class="modal-content animate" action=""> -->
+     
+      <div class="tab-content">
+
+        <form  action="createpost" method="post" enctype="multipart/form-data"> 
+<!--         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span> -->
+
+          <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Upload Post</h1>
+          
+          
+          
+   			
+            <div class="field-wrap">
+              <label style = "font-size: 19px">
+                Title<span class="req">*</span>
+              </label>
+              <input type="text" name="title" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
+              maxlength="140" required autocomplete="off"/>
+              <input id="username" name="username" type="hidden" value="<c:out value="${sessionScope.loggedAs}"></c:out>" size="30" required>
+            </div>
+            
+               
+ 		<div class="field-wrap">
+         
+            <input type="file"  name="postPicture" accept="image/*" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
+              required autocomplete="off"/>
+          </div> 
+          
+          <div class="field-wrap">  
+ 		   	
+ 		     	<h2 style = "color: #a0b3b0"><strong>Choose category: </strong></h2>
+ 		    
+ 		     	<select name = "category"> 
+ 		     	  
+				  <option value="Funny"> Funny </option>
+				  <option value="MovieTV"> MovieTV </option>
+				  <option value="Sport"> Sport </option>
+				  <option value="Food"> Food </option>
+				 </select>
+			 	
+ 		 </div>   
+           
+          
+ 		
+          <button class="button button-block"  type="submit">Upload</button>
+         <br>
+<!--           <button class="button button-block" type="submit" onclick="window.location.href='/MyGag/register.html'"> Register</button> -->
+          
+          </form>
+        
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+        <script src="js/alex.js"></script> 
+        
+      </div><!-- tab-content -->
+      
+</div> <!-- /form -->
+<!--  </form> -->
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+        <script src="js/index.js"></script>
+           
+</div>
 	
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -143,7 +221,8 @@ function action2()
                         <a href="foodposts">Food</a>
                     </li>
                     <li>
-                        <a href="uploadpost"> Upload </a>
+                    <button class="dropbtnlog" id = "upload" onclick="document.getElementById('id03').style.display='block'" style="width:auto;" >Upload</button> 
+
                     </li>
                      
                     <li> <div class="dropdown">
@@ -325,8 +404,13 @@ function action2()
                 </div>
 
  </c:forEach>
-
-                
+ <script >
+$(document).ready(function(){
+    $("#upload").click(function(){
+        $("#id03").modal();
+    });
+});
+</script>
 
              <!-- Footer -->
         <footer>

@@ -102,7 +102,7 @@ public class UserController {
 			
 			jsp = "index";
 		} else {
-			jsp = "RegisterFailed";
+			jsp = "index";
 		}
 
 		return jsp;

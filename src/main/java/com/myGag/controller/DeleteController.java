@@ -47,6 +47,6 @@ public class DeleteController {
 		
 		CommentsManager.getInstance().deleteComment(username, Integer.parseInt(postId), Integer.parseInt(commentId));
 		
-		return "CommentsPage";
+		return "DetailsPost";
 	}
 }
