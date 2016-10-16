@@ -82,7 +82,7 @@
 					src="profilePicture?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt="" height="55" width="55"> 
   									<div class="dropdown-content">
 	    								<a href="profile">My Profile</a>
-	    								<a href="changeSettings">Settings</a>
+	    								<a href="settings">Settings</a>
 	    								<form action = "logOut" method = "post">
 	    								
 	   									<button class="dropbtnlog" type = "submit" >Logout</button>

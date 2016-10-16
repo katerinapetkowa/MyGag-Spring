@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="com.myGag.model.PostsManager"%> 
+<%@ page import="com.myGag.model.PostsManager"%>
 <%@ page import="com.myGag.model.Post"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -40,6 +40,7 @@
 
 <body>
 
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	
 	<!-- Navigation -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -119,70 +120,88 @@
 
 			<!-- Blog Entries Column -->
 			
-<div  style="background-color:#222222">
 
-				
-<!-- 				<h1> class="page-header" My profile</h1> -->
-			
-			<br>	
-				
-				
-				<center><img class="img-responsive"
-					src="profilePicture?username=${UsersManager.getInstance().getUser(sessionScope.loggedAs).getUsername()}" alt=""  width="100"></center>
-				<center><h3 style = "color: #b4b4b4">${UsersManager.getInstance().getUser(sessionScope.loggedAs).getName()}</h3></center>
-				<center><h4 style = "color: #b4b4b4">${UsersManager.getInstance().getUser(sessionScope.loggedAs).getDescription()}</h4></center>
-<!-- 				<a style = "text-decoration: none"href = "deletePage.jsp"> Delete account</a> -->
-		<br>
-				<hr>
-		</div>	
-			
-<!-- 			</div> -->
-<!-- 			</div> -->
 <div>
-<nav style = "border-bottom: 0.001px solid #b4b4b4"  role="navigation">
+
 	<div class="container">
 	
 			<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-					<li>
-                        <a style="border-bottom: solid #b4b4b4;font-size:18px;color:#222222" href="profile">Posts</a>
-                    </li>
-                    
-                    <li>
-                        <a style="font-size:18px;color:#222222" href="upvotedPosts">Upvotes</a>
-                    </li>
-                    <li>
-                        <a style="font-size:18px;color:#222222" href="commentedPosts">Comments</a>
-                    </li>
-              </ul>
+			
               </div>
               </div>
-              </nav>
               
+            
              </div> 
 			<div class="container">
 			<div class="row">
 			<div class="col-md-8">
 			
-				<c:forEach var='post' items='${UsersManager.getInstance().getUser(sessionScope.loggedAs).getFreshPosts().values()}'>
+			<h1 style = "font-family:sans-serif" class="page-header">
+                    
+                    
+                </h1>
+			
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav" style = "list-style-type: none; margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #ffffff;">
+					<li>
+                        <a style="font-size:18px;color:#000000;width:150px;display:block"  href="settings">Account</a>
+                    </li>
+                    
+                    <li>
+                        <a style="border-radius:3px;background-color:#1ab188;width:150px;display: block;font-size:18px;color:#ffffff"" href="password">Password</a>
+                    </li>
+                    
+              </ul>
+              
+			<div>
+			<div style="margin-left:25%;padding:1px 16px;height:1000px;">
+			<h1> Password </h1>
+			<br>
+			
 				
+   					
+			
+				<small style="color: #000000" ><b>Password</b> </small>
+			<input type = "password" name = "oldPassword " id="old_password" style = "border-radius:0px;width: 100%;padding: 12px 20px;margin: 2px 0;display: inline-block; border: 1px solid #ccc;
+   					box-sizing: border-box;background-color:#ffffff; height:45px" 
+   					onfocus = "this.style.borderColor = 'green'"
+   					onfocusout = "this.style.borderColor = '#a0b3b0'"
+   					maxlength="30" 
+   					required autocomplete="off" >
+   			<br>	
+   			<br>	
+   			
+   				<small style="color: #000000" ><b>New Password</b> </small>
+			<input type = "password" name = "password" id="password" style = ";width: 100%;padding: 12px 20px;margin: 2px 0;display: inline-block; border: 1px solid #ccc;
+   					box-sizing: border-box;background-color:#ffffff; height:45px" 
+   					onfocus = "this.style.borderColor = 'green'"
+   					onfocusout = "this.style.borderColor = '#a0b3b0'"
+   					maxlength="30"  
+   					required autocomplete="off">
+   					
+   				<br>
+   				<br>
+   					
+   				<small style="color: #000000" ><b>Confirm Password</b> </small>
+			<input  type="password" name="password2" id="confirm_password" style = ";width: 100%;padding: 12px 20px;margin: 2px 0;display: inline-block; border: 1px solid #ccc;
+   					box-sizing: border-box;background-color:#ffffff; height:45px" 
+   					onfocus = "this.style.borderColor = 'green'"
+   					onfocusout = "this.style.borderColor = '#a0b3b0'"
+   					maxlength="30"  
+   					required autocomplete="off">
+   					
+   					<br>
+   					<br>
+   					
+   					<form id="submitForm" class="signup" action="ChangePasswordServlet" method="post">
+				 		
+				 		<button class="button button-block" style = "background-color:#1ab188" onmouseover = "this.style.backgroundColor = '#179b77'" onmouseout = "this.style.backgroundColor = '#1ab188'"type="button" onclick="asd()">Save Changes</button>
 				
-				<!-- First Blog Post -->
-				<h2>
-					<a style = "text-decoration: none; color:#222222" onmouseover="this.style.color = '#23527c'" onmouseout="this.style.color = '#222222'" 
-					href="viewpost?post_id=${post.postId}"><c:out value="${post.title}"></c:out></a>
-				</h2>
-
-				<p>
-					<span class="glyphicon glyphicon-time"></span>
-					${post.uploadDate}</p>
-				<hr>
-				<a href="viewpost?post_id=${post.postId}"> <img class="img-responsive"
-					src="postPicture?post_id=${post.postId}" alt="" width="500"></a>
-				<hr>
-
-				</c:forEach>
+				</form>
 			</div>
 		</div>
 
@@ -191,6 +210,44 @@
 
 	</div>
 	<!-- /.container -->
+	<script src="js/index.js"></script>
+	<script>
+		function asd(){
+			var pass = $('#password').val();
+			var newPass = $('#confirm_password').val();
+			if(pass == ""){
+				$('#password').get(0).setCustomValidity('Please enter a new password !');
+				$('#password').get(0).reportValidity();
+				return;
+			}
+			if(newPass == ""){
+				$('#confirm_password').get(0).setCustomValidity('Please confirm new password!');
+				$('#confirm_password').get(0).reportValidity();
+				return;
+			}
+			if(pass != newPass){
+				$('#confirm_password').get(0).setCustomValidity('Passwords Don\'t match!');
+				$('#confirm_password').get(0).reportValidity();
+			}else{
+				var params = {
+						oldPassword : $('#old_password').val(),
+						password : $('#password').val(),
+						confirmPassword : $('#confirm_password').val()
+					};
+					$.post("ValidatePasswordServlet", $.param(params), function(
+							responseText) {
+						console.log(responseText);
+						if (responseText[0] == "f") {
+							$('#old_password').get(0).setCustomValidity(
+									'Wrong password');
+							$('#old_password').get(0).reportValidity();
+						}else {
+							$('#submitForm').submit();
+						}
+					});
+			}
+		}
+	}	
 
 	<!-- jQuery -->
 	<script src="js/jquery.js"></script>
