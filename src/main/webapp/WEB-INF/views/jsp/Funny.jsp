@@ -44,6 +44,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 	<script src="js/loginValidate.js"></script>
+	<script src="js/validateRegister.js"></script>
 </head>
 
 
@@ -111,7 +112,7 @@ background: #13232f;">
 <!-- 	 <form class="modal-content animate" action=""> -->
      
       <div class="tab-content">
-        <form class ="signup" action="RegisterServlet" method="POST" enctype="multipart/form-data">  
+        <form id ="registerForm" class ="signup" action="javascript:validateRegister()" method="POST" enctype="multipart/form-data">  
         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
           <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Sign up</h1>
           
@@ -162,8 +163,8 @@ background: #13232f;">
          
             <input type="file"  name="profilePicture" accept="image/*" required autocomplete="off"/>
           </div>   
-          
-          <button class="button button-block" type="submit">Register</button>
+          <div id="message2"></div>
+          <button class="button button-block" type="submit" onclick="validateRegister()">Register</button>
          <br>
 <!--           <button class="button button-block" type="submit" onclick="window.location.href='/MyGag/register.html'"> Register</button> -->
           

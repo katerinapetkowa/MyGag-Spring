@@ -36,6 +36,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 	<script src="js/loginValidate.js"></script>
+	<script src="js/validateRegister.js"></script>
 </head>
 
 
