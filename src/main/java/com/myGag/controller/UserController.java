@@ -77,10 +77,10 @@ public class UserController {
 		Matcher mattcher = pattern.matcher(email);
 		String jsp = "";
 
-//		if (((!UsersManager.getInstance().getAllUsers().containsKey("username")) && mattcher.matches()) && (!email.isEmpty())
-//				&& (!password.isEmpty()) && (password.equals(password2))
-//				&& (!name.isEmpty()) && (name.trim().length() >= 3)) {
-		if(!UsersManager.getInstance().getAllUsers().containsKey("username")){
+		if (((!UsersManager.getInstance().getAllUsers().containsKey("username")) && mattcher.matches()) && (!email.isEmpty())
+				&& (!password.isEmpty()) && (password.equals(password2))
+				&& (!name.isEmpty()) && (name.trim().length() >= 3)) {
+//		if(!UsersManager.getInstance().getAllUsers().containsKey("username")){
 			File dir = new File("D:\\MyGagPictures\\userProfilePics");
 			if (!dir.exists()) {
 				dir.mkdirs();
