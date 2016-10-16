@@ -71,10 +71,10 @@ background: #13232f;" >
           
    			
             <div class="field-wrap">
-              <label style = "font-size: 19px">
+              <label >
                 Username<span class="req">*</span>
               </label>
-              <input type="text" name="username" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              <input type="text" name="username" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               maxlength="30" required autocomplete="off"/>
             </div>
@@ -83,10 +83,10 @@ background: #13232f;" >
           
           
           <div class="field-wrap">
-            <label style = "font-size: 19px">
+            <label>
               Password<span class="req">*</span>
             </label>
-            <input type="password" name="password" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+            <input type="password" name="password" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               maxlength="30" required autocomplete="off"/>
           </div>
@@ -117,10 +117,10 @@ background: #13232f;" >
 background: #13232f;">
 	 
 <!-- 	 <form class="modal-content animate" action=""> -->
-     
+     	<script src="js/forms.js"></script>
       <div class="tab-content">
 
-        <form id ="registerForm" class ="signup" action="javascript:validateRegister()" method="POST" enctype="multipart/form-data">  
+        <form id ="registerForm" class ="signup" action="javascript:validateRegister()"  enctype="multipart/form-data">  
 <!--         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span> -->
 
           <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Sign up</h1>
@@ -129,59 +129,59 @@ background: #13232f;">
           
    			
             <div class="field-wrap">
-              <label style = "font-size: 19px">
+              <label>
                 Name<span class="req">*</span>
               </label>
-              <input type="text" name="name" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              <input type="text" name="name" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               maxlength="30" required autocomplete="off"/>
             </div>
           
 
           <div class="field-wrap">
-              <label style = "font-size: 19px">
+              <label>
                 Username<span class="req">*</span>
               </label>
-              <input type="text" name="username" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              <input type="text" name="username" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               maxlength="30" required autocomplete="off"/>
             </div>
           
           <div class="field-wrap">
-              <label style = "font-size: 19px">
+              <label>
                 Email<span class="req">*</span>
               </label>
-              <input type="email" name="email" maxlength="40" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              <input type="email" name="email" maxlength="40" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               required autocomplete="off"/>
             </div>   
           
           <div class="field-wrap">
-            <label style = "font-size: 19px">
+            <label>
               Password<span class="req">*</span>
             </label>
-            <input type="password" name="password" maxlength="30" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+            <input type="password" name="password" maxlength="30" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               required autocomplete="off"/>
           </div>
           
            <div class="field-wrap">
-            <label style = "font-size: 19px">
+            <label>
               Confirm Password<span class="req">*</span>
             </label>
-            <input type="password"  name="password2" id="confirm_password" maxlength="30" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+            <input type="password"  name="password2" id="confirm_password" maxlength="30" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               required autocomplete="off"/>
           </div>
           
  		<div class="field-wrap">
          
-            <input type="file"  name="profilePicture" accept="image/*" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+            <input type="file" id="fileMaina" name="profilePicture" accept="image/*" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               required autocomplete="off"/>
           </div>   
           <div id="message2"></div>
-          <button class="button button-block" type="submit" onclick="validateRegister()">Register</button>
+          <button class="button button-block" type="submit" >Register</button>
          <br>
 <!--           <button class="button button-block" type="submit" onclick="window.location.href='/MyGag/register.html'"> Register</button> -->
           
@@ -215,10 +215,10 @@ background: #13232f;">
           
    			
             <div class="field-wrap">
-              <label style = "font-size: 19px">
+              <label>
                 Title<span class="req">*</span>
               </label>
-              <input type="text" name="title" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              <input type="text" name="title" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               maxlength="140" required autocomplete="off"/>
               <input id="username" name="username" type="hidden" value="<c:out value="${sessionScope.loggedAs}"></c:out>" size="30" required>
@@ -227,7 +227,7 @@ background: #13232f;">
                
  		<div class="field-wrap">
          
-            <input type="file"  name="postPicture" accept="image/*" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+            <input type="file"  name="postPicture" accept="image/*" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               required autocomplete="off"/>
           </div> 
@@ -418,6 +418,47 @@ $(document).ready(function(){
         $("#id02").modal();
     });
 });
+
+
+$(document).ready(function(){
+    $("#register").click(function(){
+        $("#id02").modal();
+    });
+});
+
+
+
+
+function validateRegister(){
+	var form = $('#registerForm');
+	form.ajaxSubmit({
+		type : 'post',
+		url : 'registerValidate',
+		async: true,
+		success : function(results){
+			if(results!=null && results != ""){
+				showMesage(results);					
+				
+			}else{
+				alert("Some error occured, try again.");
+			}
+		}
+	})
+}
+
+function showMesage(results){
+	if(results == 'success'){
+		$('#message2').html("<font color='green'>You registerred successfully</font>");
+		setTimeout(function(){
+			window.location.href = "index";
+		}, 1000)
+	}else if (results == 'usernameTaken'){
+		$('#message2').html("<font color='red'>Username already taken</font>");
+	}else{
+		$('#message2').html("<font color='red'>Passwords don't match</font>")
+	}
+}
+
 </script>
 
 
@@ -433,5 +474,5 @@ $(document).ready(function(){
     <script src="js/bootstrap.min.js"></script>
 
 </body>
-
+<script src="http://malsup.github.com/jquery.form.js"></script>
 </html>

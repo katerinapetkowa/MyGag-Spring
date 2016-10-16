@@ -5,13 +5,13 @@ function validateLogin(){
 
 function showMessage(results){
 	if(results == 'success'){
-		$('#message').html("<font color='green'>Login Successful</font>");
+		$('#message').html("<font size = '3' color='#179b77'><b>Login Successful</b></font>");
 		setTimeout(function(){
 			window.location.href = "index";
 		}, 1000)
 	}else if(results == 'invalidUsername'){
-		$('#message').html("<font color='red'>Invalid username. Please try again! </font>");
+		$('#message').html("<font size = '3'color='red'><b>Invalid username. Please try again! </b></font>");
 	} else{
-		$('#message').html("<font color='red'>Wrong password. Please try again! </font>");
+		$('#message').html("<font size = '3' color='#c62115'><b>Wrong password. Please try again!</b> </font>");
 	}
 }

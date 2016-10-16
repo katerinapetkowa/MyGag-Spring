@@ -73,10 +73,10 @@ background: #13232f;" >
           
    			
             <div class="field-wrap">
-              <label style = "font-size: 19px">
+              <label>
                 Username<span class="req">*</span>
               </label>
-              <input type="text" name="username" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              <input type="text" name="username" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               maxlength="30" required autocomplete="off"/>
             </div>
@@ -85,10 +85,10 @@ background: #13232f;" >
           
           
           <div class="field-wrap">
-            <label style = "font-size: 19px">
+            <label>
               Password<span class="req">*</span>
             </label>
-            <input type="password" name="password" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+            <input type="password" name="password" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               maxlength="30" required autocomplete="off"/>
           </div>
@@ -132,54 +132,54 @@ background: #13232f;">
           
    			
             <div class="field-wrap">
-              <label style = "font-size: 19px">
+              <label>
                 Name<span class="req">*</span>
               </label>
-              <input id="name" type="text" name="name" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              <input id="name" type="text" name="name" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               maxlength="30" required autocomplete="off"/>
             </div>
           
 
           <div class="field-wrap">
-              <label style = "font-size: 19px">
+              <label>
                 Username<span class="req">*</span>
               </label>
-              <input id="username" type="text" name="username" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              <input id="username" type="text" name="username" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               maxlength="30" required autocomplete="off"/>
             </div>
           
           <div class="field-wrap">
-              <label style = "font-size: 19px">
+              <label>
                 Email<span class="req">*</span>
               </label>
-              <input type="email" name="email" maxlength="40" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              <input type="email" name="email" maxlength="40" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               required autocomplete="off"/>
             </div>   
           
           <div class="field-wrap">
-            <label style = "font-size: 19px">
+            <label>
               Password<span class="req">*</span>
             </label>
-            <input type="password" name="password" maxlength="30" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+            <input type="password" name="password" maxlength="30" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               required autocomplete="off"/>
           </div>
           
            <div class="field-wrap">
-            <label style = "font-size: 19px">
+            <label>
               Confirm Password<span class="req">*</span>
             </label>
-            <input type="password"  name="password2" id="confirm_password" maxlength="30" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+            <input type="password"  name="password2" id="confirm_password" maxlength="30" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               required autocomplete="off"/>
           </div>
           
  		<div class="field-wrap">
          
-            <input type="file" id="fileMaina"  name="profilePicture" accept="image/*" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+            <input type="file" id="fileMaina"  name="profilePicture" accept="image/*" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               required autocomplete="off"/>
           </div>   
@@ -218,10 +218,10 @@ background: #13232f;">
           
    			
             <div class="field-wrap">
-              <label style = "font-size: 19px">
+              <label>
                 Title<span class="req">*</span>
               </label>
-              <input type="text" name="title" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              <input type="text" name="title" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               maxlength="140" required autocomplete="off"/>
               <input id="username" name="username" type="hidden" value="<c:out value="${sessionScope.loggedAs}"></c:out>" size="30" required>
@@ -230,7 +230,7 @@ background: #13232f;">
                
  		<div class="field-wrap">
          
-            <input type="file"  name="postPicture" accept="image/*" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+            <input type="file"  name="postPicture" accept="image/*" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               required autocomplete="off"/>
           </div> 

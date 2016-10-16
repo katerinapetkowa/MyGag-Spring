@@ -127,10 +127,10 @@ background: #13232f;">
           
    			
             <div class="field-wrap">
-              <label style = "font-size: 19px">
+              <label>
                 Title<span class="req">*</span>
               </label>
-              <input type="text" name="title" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              <input type="text" name="title" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               maxlength="140" required autocomplete="off"/>
               <input id="username" name="username" type="hidden" value="<c:out value="${sessionScope.loggedAs}"></c:out>" size="30" required>
@@ -139,7 +139,7 @@ background: #13232f;">
                
  		<div class="field-wrap">
          
-            <input type="file"  name="postPicture" accept="image/*" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+            <input type="file"  name="postPicture" accept="image/*" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 45px;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               required autocomplete="off"/>
           </div> 
