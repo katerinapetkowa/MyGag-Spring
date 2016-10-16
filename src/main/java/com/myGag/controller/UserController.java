@@ -133,6 +133,7 @@ public class UserController {
 		System.out.println("Try to save file with name: " + profilePicFile.getName());
 		System.out.println("abs. path = " + profilePicFile.getAbsolutePath());
 		Files.copy(profilePicStream, profilePicFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+		UsersManager.getInstance().changeProfilePicture(username, profilePicFile.getName());
 	}
 		UsersManager.getInstance().changeProfile(username, name, email, description);
 		response.setHeader("Pragma", "No-cache");

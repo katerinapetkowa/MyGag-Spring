@@ -375,7 +375,7 @@ background: #13232f;">
                     
                 </h1>
                 
-                <c:forEach var = "post" items='${PostsManager.getInstance().getFreshPosts().values()}'>
+                <c:forEach var = "post" items='${PostsManager.getInstance().getFreshPosts()}'>
 				
                 <!-- First Blog Post -->
                 <h2>

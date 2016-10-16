@@ -78,7 +78,7 @@ public class PostsManager {
 		Set<Post> freshPosts = new TreeSet<Post>(new Comparator<Post>(){
 			@Override
 			public int compare(Post p1, Post p2) {
-				return p1.getUploadDate().compareTo(p2.getUploadDate());
+				return p2.getUploadDate().compareTo(p1.getUploadDate());
 			}
 		});
 		for (Post p: PostsManager.getInstance().getAllPosts().values()){
