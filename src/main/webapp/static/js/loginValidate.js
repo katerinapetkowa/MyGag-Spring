@@ -9,7 +9,9 @@ function showMessage(results){
 		setTimeout(function(){
 			window.location.href = "index";
 		}, 1000)
-	}else{
-		$('#message').html("<font color='red'>Login Failed Try Again</font>");
+	}else if(results == 'invalidUsername'){
+		$('#message').html("<font color='red'>Invalid username. Please try again! </font>");
+	} else{
+		$('#message').html("<font color='red'>Wrong password. Please try again! </font>");
 	}
 }

@@ -316,7 +316,7 @@ background: #13232f;">
 						password : $('#password').val(),
 						confirmPassword : $('#confirm_password').val()
 					};
-					$.post("ValidatePasswordServlet", $.param(params), function(
+					$.post("passwordValidate", $.param(params), function(
 							responseText) {
 						console.log(responseText);
 						if (responseText[0] == "f") {
@@ -329,7 +329,7 @@ background: #13232f;">
 					});
 			}
 		}
-	}	
+		
 </script>
 	<!-- jQuery -->
 	<script src="js/jquery.js"></script>
