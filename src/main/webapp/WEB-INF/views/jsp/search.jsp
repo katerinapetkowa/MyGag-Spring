@@ -28,6 +28,22 @@
     <link href="css/dropdown.css" rel="stylesheet">
     <link href="css/LogOutButton.css" rel="stylesheet">
     <link href="css/searchBox.css" rel="stylesheet">
+    <link href="css/modal.css" rel="stylesheet">
+
+     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+    
+    <link rel="stylesheet" href="css/normalize.css">
+
+    
+        <link rel="stylesheet" href="css/style.css">
+    
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,9 +54,215 @@
 	<script src="js/loginValidate.js"></script>
 	<script src="js/validateRegister.js"></script>
 </head>
-
-
 <body>
+
+<div id="myModal" class="modal"  >
+	 <div class="form" style = " opacity: 1 !important;
+    filter: alpha(opacity=100);
+background: #13232f;" >
+	 
+<!-- 	 <form class="modal-content animate" action=""> -->
+     
+      <div class="tab-content" >
+        <form id="loginForm" class ="login" action="javasript:validateLogin()" method="POST">  
+<!--          <span  class="close" title="Close Modal">x</span>  --> 
+			
+          <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Please log in!</h1>
+          
+          
+          
+   			
+            <div class="field-wrap">
+              <label style = "font-size: 19px">
+                Username<span class="req">*</span>
+              </label>
+              <input type="text" name="username" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
+              maxlength="30" required autocomplete="off"/>
+            </div>
+          
+
+          
+          
+          <div class="field-wrap">
+            <label style = "font-size: 19px">
+              Password<span class="req">*</span>
+            </label>
+            <input type="password" name="password" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
+              maxlength="30" required autocomplete="off"/>
+          </div>
+          <div id="message"></div>
+          <button class="button button-block"  type="submit" onclick="validateLogin()">Log in</button>
+         <br>
+<!--           <button class="button button-block" type="submit" onclick="window.location.href='/MyGag/register.html'"> Register</button> -->
+          
+          </form>
+
+    
+        
+        
+        
+      </div><!-- tab-content -->
+      
+</div> <!-- /form -->
+<!--  </form> -->
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+        <script src="js/index.js"></script>
+           
+</div>
+    
+    <div id="id02" class="modal" >
+	 <div class="form" style = " opacity: 1 !important;
+    filter: alpha(opacity=100);
+background: #13232f;">
+	 
+<!-- 	 <form class="modal-content animate" action=""> -->
+     
+      <div class="tab-content">
+
+        <form id="registerForm" class ="signup" action="register" method="POST" enctype="multipart/form-data">  
+<!--         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span> -->
+
+          <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Sign up</h1>
+          
+          
+          
+   			
+            <div class="field-wrap">
+              <label style = "font-size: 19px">
+                Name<span class="req">*</span>
+              </label>
+              <input type="text" name="name" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
+              maxlength="30" required autocomplete="off"/>
+            </div>
+          
+
+          <div class="field-wrap">
+              <label style = "font-size: 19px">
+                Username<span class="req">*</span>
+              </label>
+              <input type="text" name="username" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
+              maxlength="30" required autocomplete="off"/>
+            </div>
+          
+          <div class="field-wrap">
+              <label style = "font-size: 19px">
+                Email<span class="req">*</span>
+              </label>
+              <input type="email" name="email" maxlength="40" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
+              required autocomplete="off"/>
+            </div>   
+          
+          <div class="field-wrap">
+            <label style = "font-size: 19px">
+              Password<span class="req">*</span>
+            </label>
+            <input type="password" name="password" maxlength="30" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
+              required autocomplete="off"/>
+          </div>
+          
+           <div class="field-wrap">
+            <label style = "font-size: 19px">
+              Confirm Password<span class="req">*</span>
+            </label>
+            <input type="password"  name="password2" id="confirm_password" maxlength="30" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
+              required autocomplete="off"/>
+          </div>
+          
+ 		<div class="field-wrap">
+         
+            <input type="file"  name="profilePicture" accept="image/*" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
+              required autocomplete="off"/>
+          </div>   
+          
+          <button class="button button-block"  type="submit">Register</button>
+         <br>
+<!--           <button class="button button-block" type="submit" onclick="window.location.href='/MyGag/register.html'"> Register</button> -->
+          
+          </form>
+
+    </div>
+    </div>
+  </div>  
+    
+     <div id="id03" class="modal" >
+	 <div class="form" style = " opacity: 1 !important;
+    filter: alpha(opacity=100);
+background: #13232f;">
+	 
+<!-- 	 <form class="modal-content animate" action=""> -->
+     
+      <div class="tab-content">
+
+        <form  action="createpost" method="post" enctype="multipart/form-data"> 
+<!--         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span> -->
+
+          <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Upload Post</h1>
+          
+          
+          
+   			
+            <div class="field-wrap">
+              <label style = "font-size: 19px">
+                Title<span class="req">*</span>
+              </label>
+              <input type="text" name="title" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
+              maxlength="140" required autocomplete="off"/>
+              <input id="username" name="username" type="hidden" value="<c:out value="${sessionScope.loggedAs}"></c:out>" size="30" required>
+            </div>
+            
+               
+ 		<div class="field-wrap">
+         
+            <input type="file"  name="postPicture" accept="image/*" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
+              required autocomplete="off"/>
+          </div> 
+          
+          <div class="field-wrap">  
+ 		   	
+ 		     	<h2 style = "color: #a0b3b0"><strong>Choose category: </strong></h2>
+ 		    
+ 		     	<select name = "category"> 
+ 		     	  
+				  <option value="Funny"> Funny </option>
+				  <option value="MovieTV"> MovieTV </option>
+				  <option value="Sport"> Sport </option>
+				  <option value="Food"> Food </option>
+				 </select>
+			 	
+ 		 </div>   
+           
+          
+ 		
+          <button class="button button-block"  type="submit">Upload</button>
+         <br>
+<!--           <button class="button button-block" type="submit" onclick="window.location.href='/MyGag/register.html'"> Register</button> -->
+          
+          </form>
+        
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+        <script src="js/alex.js"></script> 
+        
+      </div><!-- tab-content -->
+      
+</div> <!-- /form -->
+<!--  </form> -->
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+        <script src="js/index.js"></script>
+           
+</div>
 	
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -81,14 +303,25 @@
                     <li>
                         <a href="foodposts">Food</a>
                     </li>
-                    <c:choose>
+                     <c:choose>
                     <c:when test="${sessionScope.loggedAs != null}">
                     <li>
-                        <a href="uploadpost"> Upload </a>
+                    <button class="dropbtnlog" id = "upload" onclick="document.getElementById('id03').style.display='block'" style="width:auto;" >Upload</button> 
+
                     </li>
                     </c:when>
                     </c:choose>
-                     <c:choose>
+                    <c:choose>
+                    <c:when test="${sessionScope.loggedAs == null}">
+                    <li>
+                    <button class="dropbtnlog" id="myBtn" onclick= "document.getElementById('id02').style.display='none';document.getElementById('myModal').style.display='block;" style="width:auto;"  >Log in</button>
+                    </li>
+                     <li>
+                    <button class="dropbtnlog" id = "register" onclick="document.getElementById('id02').style.display='block';document.getElementById('myModal').style.display='none';" style="width:auto;" >Sign up</button>
+                    </li>
+                    </c:when>
+                    </c:choose>
+                    <c:choose>
                      <c:when test='${sessionScope.loggedAs != null}'>
                         <li> <div class="dropdown">
  							 <img class="dropbtn" 
@@ -136,14 +369,15 @@
 
             <!-- Blog Entries Column -->
             <div class="col-md-8">
-
-                <h1 class="page-header">
-                    Welcome to our site MyGag!
+		
+			<h1 style = "font-family:sans-serif" class="page-header">
+                    
                     
                 </h1>
                
+               
                <c:set var="title" value="${param.title}" scope="request" />
-               <h4>Search results for "<c:out value="${requestScope.title}"></c:out>"</h4>
+               <h4><b>Search results for "<c:out value="${requestScope.title}"></c:out>"</b></h4>
                <c:if test='${PostsManager.getInstance().searchPosts(requestScope.title).isEmpty()}'>
                	<h4>No results</h4>
                </c:if>
@@ -172,7 +406,36 @@
 
     </div>
     <!-- /.container -->
+<script>
 
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myModal").modal();
+    });
+});
+
+</script>
+
+
+<script >
+
+$(document).ready(function(){
+    $("#upload").click(function(){
+        $("#id03").modal();
+    });
+});
+
+</script>
+
+<script>
+
+$(document).ready(function(){
+    $("#register").click(function(){
+        $("#id02").modal();
+    });
+});
+
+</script>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
