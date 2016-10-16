@@ -111,7 +111,7 @@ background: #13232f;">
 <!-- 	 <form class="modal-content animate" action=""> -->
      
       <div class="tab-content">
-        <form class ="signup" action="register" method="POST" enctype="multipart/form-data">  
+        <form id="registerForm" class ="signup" action="register" method="POST" enctype="multipart/form-data">  
         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
           <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Sign up</h1>
           

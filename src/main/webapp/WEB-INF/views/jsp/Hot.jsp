@@ -44,6 +44,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 	<script src="js/loginValidate.js"></script>
+	<script src="js/validateRegister.js"></script>
 </head>
 
 
@@ -111,7 +112,7 @@ background: #13232f;">
 <!-- 	 <form class="modal-content animate" action=""> -->
      
       <div class="tab-content">
-        <form class ="signup" action="RegisterServlet" method="POST" enctype="multipart/form-data">  
+        <form id ="registerForm" class ="signup" action="register" method="POST" enctype="multipart/form-data">  
         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
           <h1 style = "text-align: center; color: #ffffff;font-weight: 300; margin: 0 0 40px;">Sign up</h1>
           
@@ -122,7 +123,7 @@ background: #13232f;">
               <label>
                 Name<span class="req">*</span>
               </label>
-              <input type="text" name="username" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
+              <input type="text" name="name" onfocus = "this.style.borderColor = '#1ab188'" onfocusout = "this.style.borderColor = '#a0b3b0' "style = "font-size: 22px;display: block;width: 100%;height: 100%;
               padding: 5px 10px; background: none; color: #ffffff; border-radius: 0;background-image: none; border: 1px solid #a0b3b0;" 
               maxlength="30" required autocomplete="off"/>
             </div>
@@ -162,8 +163,8 @@ background: #13232f;">
          
             <input type="file"  name="profilePicture" accept="image/*" required autocomplete="off"/>
           </div>   
-          
-          <button class="button button-block" type="submit">Register</button>
+          <div id="message2"></div>
+          <button class="button button-block" type="submit" onclick="validateRegister()">Register</button>
          <br>
 <!--           <button class="button button-block" type="submit" onclick="window.location.href='/MyGag/register.html'"> Register</button> -->
           

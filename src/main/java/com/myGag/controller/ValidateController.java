@@ -28,4 +28,21 @@ public class ValidateController {
 		return msg;
 		
 	}
+	
+	@RequestMapping(value="/registerValidate", method=RequestMethod.POST)
+	public String registerValidate(@RequestParam("username") String username,@RequestParam("name") String name, @RequestParam("email") String email,
+			@RequestParam("password") String password, @RequestParam("password2") String password2,
+			HttpSession session, HttpServletResponse response){
+		
+		String msg;
+		if(UsersManager.getInstance().getAllUsers().containsKey(username)){
+			msg = "usernameTaken";
+		}else if(!password.equals(password2)){
+			msg = "passwordsDontMatch";
+		} else{
+			msg = "success";
+		}
+		return msg;
+		
+	}
 }
