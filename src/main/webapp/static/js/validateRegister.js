@@ -12,6 +12,6 @@ function showMessage(results){
 	}else if (results == 'usernameTaken'){
 		$('#message2').html("<font color='red'>Username already taken</font>");
 	}else{
-		$('#message2').html("<font color='red'>Psswords don't match</font>")
+		$('#message2').html("<font color='red'>Passwords don't match</font>")
 	}
 }
