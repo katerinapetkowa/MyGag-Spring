@@ -153,8 +153,9 @@
 					<div class="field-wrap">
 						<label> Name<span class="req">*</span>
 						</label> <input id="name" type="text" name="name"
+							pattern = "[a-zA-Z. ]{30}" title = "Only letters"
 							onfocus="this.style.borderColor = '#1ab188'"
-							onfocusout="this.style.borderColor = '#a0b3b0' "
+							onfocusout="this.style.borderColor = '#a0b3b0'"
 							style="font-size: 22px; display: block; width: 100%; height: 45px; padding: 5px 10px; background: none; color: #ffffff; border-radius: 0; background-image: none; border: 1px solid #a0b3b0;"
 							maxlength="30" required autocomplete="off" />
 					</div>
@@ -163,6 +164,7 @@
 					<div class="field-wrap">
 						<label> Username<span class="req">*</span>
 						</label> <input id="username" type="text" name="username"
+							pattern = "^[A-Za-z0-9]+(?:[._-][A-Za-z0-9]+)*$" title = "Your username should start with a letter or a digit and cannot contain space"
 							onfocus="this.style.borderColor = '#1ab188'"
 							onfocusout="this.style.borderColor = '#a0b3b0' "
 							style="font-size: 22px; display: block; width: 100%; height: 45px; padding: 5px 10px; background: none; color: #ffffff; border-radius: 0; background-image: none; border: 1px solid #a0b3b0;"

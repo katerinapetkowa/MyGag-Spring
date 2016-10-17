@@ -423,7 +423,7 @@
 
 
 						<div class="form-group">
-							<textarea class="form-control" name="comment" required></textarea>
+							<textarea class="form-control" name="comment" maxlength="200" required></textarea>
 						</div>
 						<input id="author" name="post_id" type="hidden"
 							value="<c:out value= "${post.postId}"></c:out>" size="30"
