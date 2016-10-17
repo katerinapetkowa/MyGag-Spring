@@ -28,7 +28,7 @@ public class DBManager {
 			if (!checkIfSchemaExists(DB_NAME)) { 
 				createTables(); 
 			}
-			setConnection(DriverManager.getConnection(URL, DB_USERNAME, DB_PASSWORD)); // establishing
+			setConnection(DriverManager.getConnection(URL, DB_USERNAME, DB_PASSWORD));
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -149,7 +149,7 @@ public class DBManager {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			try {
-				this.getConnection().rollback(); // if the commit fails
+				this.getConnection().rollback(); 
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

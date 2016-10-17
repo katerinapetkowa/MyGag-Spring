@@ -63,9 +63,9 @@ public class CommentsManager {
 		return comments;
 	}
 
-	public void uploadComment(String username, int postId, String text, int points, LocalDateTime uploadDate) {
-		int commentId = CommentDAO.getInstance().addCommentToDB(username, postId, text, points, uploadDate);
-		Comment comment = new Comment(commentId, username, postId, text, points, uploadDate);
+	public void uploadComment(String username, int postId, String text, LocalDateTime uploadDate) {
+		int commentId = CommentDAO.getInstance().addCommentToDB(username, postId, text, uploadDate);
+		Comment comment = new Comment(commentId, username, postId, text, uploadDate);
 		System.out.println(comment.toString());
 		if (!CommentsManager.getInstance().commentsByPosts.containsKey(postId)) {
 			CommentsManager.getInstance().commentsByPosts.put(postId, new TreeMap<Integer, Comment>());

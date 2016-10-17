@@ -26,11 +26,11 @@ public class CommentDAO {
 		Set<Comment> comments = new HashSet<Comment>();
 		try {
 			Statement st = DBManager.getInstance().getConnection().createStatement();
-			String query = "SELECT comment_id, username, post_id, text, points, upload_date FROM comments;";
+			String query = "SELECT comment_id, username, post_id, text, upload_date FROM comments;";
 			ResultSet resultSet = st.executeQuery(query);
 			while (resultSet.next()) {
 				comments.add(new Comment(resultSet.getInt("comment_id"), resultSet.getString("username"),
-						resultSet.getInt("post_id"), resultSet.getString("text"), resultSet.getInt("points"),
+						resultSet.getInt("post_id"), resultSet.getString("text"),
 						resultSet.getTimestamp("upload_date").toLocalDateTime()));
 			}
 			resultSet.close();
@@ -69,7 +69,7 @@ public class CommentDAO {
 	// return commentsOfPost;
 	// }
 
-	public int addCommentToDB(String username, int postId, String text, int points, LocalDateTime uploadDate) {
+	public int addCommentToDB(String username, int postId, String text, LocalDateTime uploadDate) {
 		int commentId = 0;
 		try {
 			PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(

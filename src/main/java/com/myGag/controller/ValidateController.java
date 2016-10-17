@@ -77,7 +77,6 @@ public class ValidateController {
 			}
 			String encryptedPassword = UsersManager.getInstance().passwordToMD5(password2);
 			UsersManager.getInstance().registerUser(username, name, encryptedPassword, email, profilePicFile.getName());
-			
 			msg = "success";
 		}
 		return msg;

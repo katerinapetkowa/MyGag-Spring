@@ -7,17 +7,14 @@ public class Comment {
 	private int commentId;
 	private String username;
 	private int postId;
-	// ?parrent comment
 	private String text;
-	private int points;
 	private LocalDateTime uploadDate;
 
-	public Comment(int commentId, String username, int postId, String text, int points, LocalDateTime uploadDate) {
+	public Comment(int commentId, String username, int postId, String text, LocalDateTime uploadDate) {
 		this.commentId = commentId;
 		this.username = username;
 		this.postId = postId;
 		this.text = text;
-		this.points = points;
 		this.uploadDate = uploadDate;
 	}
 
@@ -37,10 +34,6 @@ public class Comment {
 		return text;
 	}
 
-	public int getPoints() {
-		return points;
-	}
-
 	public LocalDateTime getUploadDate() {
 		return uploadDate;
 	}
@@ -48,7 +41,7 @@ public class Comment {
 	@Override
 	public String toString() {
 		return "Comment [commentId=" + commentId + ", username=" + username + ", postId=" + postId + ", text=" + text
-				+ ", points=" + points + ", uploadDate=" + uploadDate + "]";
+				+ ", uploadDate=" + uploadDate + "]";
 	}
 
 }

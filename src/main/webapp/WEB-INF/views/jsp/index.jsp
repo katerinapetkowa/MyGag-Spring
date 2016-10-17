@@ -554,9 +554,9 @@ function showMesage(results){
 			window.location.href = "index";
 		}, 1000)
 	}else if (results == 'usernameTaken'){
-		$('#message2').html("<font size = '3'color='#c62115'>Username already taken</b></font>");
+		$('#message2').html("<font size = '3'color='#c62115'><b>Username already taken</b></font>");
 	} else if (results == 'emailTaken'){
-		$('#message2').html("<font size = '3'color='#c62115'>User with such email already exists</b></font>");
+		$('#message2').html("<font size = '3'color='#c62115'><b>User with such email already exists</b></font>");
 	} else{
 		$('#message2').html("<font size = '3'color='#c62115'><b>Passwords don't match</b></font>")
 	}

@@ -13,14 +13,12 @@ import javax.mail.internet.MimeMessage;
 public class RegisterEmail extends Thread {
 	
 	private String to;
-	private String msg;
 	
-	public RegisterEmail(String to, String msg) {
+	public RegisterEmail(String to) {
 		this.to = to;
-		this.msg = msg;
 	}
 
-	public void sendMail(String to, String msg){
+	public void sendMail(String to){
 		Properties props = new Properties();
 		props.put("mail.smtp.host", "smtp.gmail.com");
 		props.put("mail.smtp.socketFactory.port", "465");
@@ -32,7 +30,7 @@ public class RegisterEmail extends Thread {
 		Session session = Session.getDefaultInstance(props,
 			new javax.mail.Authenticator() {
 				protected PasswordAuthentication getPasswordAuthentication() {
-					return new PasswordAuthentication("Our9Gag","our9gagemail");
+					return new PasswordAuthentication("Our9Gag@gmail.com","our9gagemail");
 				}
 			});
 
@@ -44,7 +42,7 @@ public class RegisterEmail extends Thread {
 					new InternetAddress(to));
 			message.setSubject("Registration");
 			//message.setContent(msg, "text/html" );
-			message.setText("You registered successfully. Your password is:" + msg);
+			message.setText("You registered successfully in MyGag! Have Fun!");
 
 			Transport.send(message);
 
@@ -55,7 +53,7 @@ public class RegisterEmail extends Thread {
 	
 	@Override
 	public void run() {
-		sendMail(this.to, this.msg);
+		sendMail(this.to);
 	}
 	
 }

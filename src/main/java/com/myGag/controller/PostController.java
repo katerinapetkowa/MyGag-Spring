@@ -104,9 +104,4 @@ public class PostController {
 	}
 }
 
-@RequestMapping(value = "/uploadpost", method = RequestMethod.GET)
-	public String uploadPost() {
-		return "UploadPost";
-	}
-
 }
