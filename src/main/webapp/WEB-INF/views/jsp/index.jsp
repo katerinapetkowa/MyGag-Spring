@@ -153,7 +153,7 @@
 					<div class="field-wrap">
 						<label> Name<span class="req">*</span>
 						</label> <input id="name" type="text" name="name"
-							pattern = "[a-zA-Z. ]{30}" title = "Only letters"
+							pattern = "[a-zA-Z. ]+" title = "Only letters"
 							onfocus="this.style.borderColor = '#1ab188'"
 							onfocusout="this.style.borderColor = '#a0b3b0'"
 							style="font-size: 22px; display: block; width: 100%; height: 45px; padding: 5px 10px; background: none; color: #ffffff; border-radius: 0; background-image: none; border: 1px solid #a0b3b0;"
