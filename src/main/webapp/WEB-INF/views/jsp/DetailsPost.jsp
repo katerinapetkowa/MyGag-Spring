@@ -447,6 +447,7 @@
 							src="profilePicture?username=<c:out value="${user.username}"></c:out>"
 							alt="" width="54" height="54">
 						</a>
+						
 						<div>
 							<c:choose>
 								<c:when test="${sessionScope.loggedAs == comment.username}">
@@ -468,13 +469,12 @@
 								</c:when>
 							</c:choose>
 
-
 							<h4>
 								<c:out value="${user.username}"></c:out>
 								<small><c:out value="${comment.uploadDate}"></c:out></small>
 							</h4>
 
-							<c:out value="${comment.text}"></c:out>
+							<h5 style = "margin-left: 1.8cm" ><c:out value="${comment.text}"></c:out></h5>
 						</div>
 					</div>
 
