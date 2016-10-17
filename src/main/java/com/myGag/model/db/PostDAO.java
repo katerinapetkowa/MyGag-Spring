@@ -232,7 +232,7 @@ public class PostDAO {
 					Statement.RETURN_GENERATED_KEYS);
 			st.setString(1, username);
 			st.setString(2, category);
-			st.setString(2, title);
+			st.setString(3, title);
 			st.setTimestamp(4, Timestamp.valueOf(uploadDate));
 			st.setString(5, picture);
 			st.executeUpdate();
@@ -376,7 +376,7 @@ public class PostDAO {
 				if (addDownvote != null) {
 					addDownvote.close();
 				}
-				DBManager.getInstance().getConnection().setAutoCommit(false);
+				DBManager.getInstance().getConnection().setAutoCommit(true);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -417,7 +417,7 @@ public class PostDAO {
 				if (addUpvote != null) {
 					addUpvote.close();
 				}
-				DBManager.getInstance().getConnection().setAutoCommit(false);
+				DBManager.getInstance().getConnection().setAutoCommit(true);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -476,7 +476,7 @@ public class PostDAO {
 				if (deletePost != null) {
 					deletePost.close();
 				}
-				DBManager.getInstance().getConnection().setAutoCommit(false);
+				DBManager.getInstance().getConnection().setAutoCommit(true);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

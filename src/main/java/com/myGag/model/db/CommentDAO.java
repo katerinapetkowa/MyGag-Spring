@@ -14,18 +14,6 @@ import com.myGag.model.Comment;
 public class CommentDAO {
 
 	private static CommentDAO instance;
-	// private ConcurrentHashMap<Integer, HashMap<Integer, Comment>>
-	// commentsByPosts;
-	//
-	// CommentDAO(){
-	// commentsByPosts = new ConcurrentHashMap<>();
-	// for (Comment c : getAllCommentsFromDB()) {
-	// if(!commentsByPosts.containsKey(c.getPostId())){
-	// commentsByPosts.put(c.getPostId(), new HashMap<Integer, Comment>());
-	// }
-	// commentsByPosts.get(c.getPostId()).put(c.getCommentId(), c);
-	// }
-	// }
 
 	public synchronized static CommentDAO getInstance() {
 		if (instance == null) {
@@ -85,13 +73,12 @@ public class CommentDAO {
 		int commentId = 0;
 		try {
 			PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(
-					"INSERT INTO comments (username, post_id, text, points, upload_date) VALUES (?, ?, ?, ?, ?);",
+					"INSERT INTO comments (username, post_id, text, upload_date) VALUES (?, ?, ?, ?);",
 					Statement.RETURN_GENERATED_KEYS);
 			st.setString(1, username);
 			st.setInt(2, postId);
 			st.setString(3, text);
-			st.setInt(4, 0);
-			st.setTimestamp(5, Timestamp.valueOf(uploadDate));
+			st.setTimestamp(4, Timestamp.valueOf(uploadDate));
 			st.executeUpdate();
 			ResultSet rs = st.getGeneratedKeys();
 			if (rs.next()) {

@@ -34,6 +34,15 @@ public class UsersManager {
 		}
 		return true;
 	}
+	
+	public boolean validEmail(String email){
+		for(User u : registerredUsers.values()){
+			if(u.getEmail().equals(email)){
+				return false;
+			}
+		}
+		return true;
+	}
 
 	public boolean validLogin(String username, String password) {
 		if (!registerredUsers.containsKey(username)) {

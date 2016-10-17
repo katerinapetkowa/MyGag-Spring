@@ -50,6 +50,8 @@ public class ValidateController {
 		String msg;
 		if (UsersManager.getInstance().getAllUsers().containsKey(username)) {
 			msg = "usernameTaken";
+		} else if(!UsersManager.getInstance().validEmail(email)){
+			msg = "emailTaken";
 		} else if (!password.equals(password2)) {
 			msg = "passwordsDontMatch";
 		} else {

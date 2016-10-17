@@ -186,9 +186,6 @@ public class UserDAO {
 	}
 
 	public void deleteUserFromDB(String username) {
-		PreparedStatement selectUpvotedPosts = null;
-		PreparedStatement changePointsOfPosts = null;
-		PreparedStatement selectDownvotedPosts = null;
 		PreparedStatement deleteUpvotesOfUser = null;
 		PreparedStatement deleteDownvotesOfUser = null;
 		PreparedStatement deleteUpvotesOfPosts = null;
@@ -199,26 +196,6 @@ public class UserDAO {
 		PreparedStatement deleteUser = null;
 		try {
 			DBManager.getInstance().getConnection().setAutoCommit(false);
-			selectUpvotedPosts = DBManager.getInstance().getConnection()
-					.prepareStatement("SELECT P.post_id, P.points FROM posts P JOIN post_upvotes U ON P.post_id = U.post_id WHERE U.username =?;");
-			selectUpvotedPosts.setString(1, username);
-			ResultSet rs = selectUpvotedPosts.executeQuery();
-			changePointsOfPosts = DBManager.getInstance().getConnection()
-					.prepareStatement("UPDATE posts SET points = ? WHERE post_id = ?;");
-			while(rs.next()){
-				changePointsOfPosts.setInt(1, rs.getInt("points") - 1);
-				changePointsOfPosts.setInt(2, rs.getInt("post_id"));
-				changePointsOfPosts.executeUpdate();
-			}
-			selectDownvotedPosts = DBManager.getInstance().getConnection()
-					.prepareStatement("SELECT P.post_id, P.points FROM posts P JOIN post_downvotes D ON P.post_id = D.post_id WHERE D.username =?;");
-			selectDownvotedPosts.setString(1, username);
-			ResultSet rs1 = selectDownvotedPosts.executeQuery();
-			while(rs1.next()){
-				changePointsOfPosts.setInt(1, rs1.getInt("points") + 1);
-				changePointsOfPosts.setInt(2, rs1.getInt("post_id"));
-				changePointsOfPosts.executeUpdate();
-			}
 			deleteUpvotesOfUser = DBManager.getInstance().getConnection()
 					.prepareStatement("DELETE FROM post_upvotes WHERE username = ? ;");
 			deleteUpvotesOfUser.setString(1, username);
@@ -268,8 +245,20 @@ public class UserDAO {
 			e.printStackTrace();
 		} finally {
 			try {
+				if (deleteUpvotesOfUser != null) {
+					deleteUpvotesOfUser.close();
+				}
+				if (deleteDownvotesOfUser != null) {
+					deleteDownvotesOfUser.close();
+				}
 				if (deleteCommentsOfUser != null) {
 					deleteCommentsOfUser.close();
+				}
+				if (deleteUpvotesOfPosts != null) {
+					deleteUpvotesOfPosts.close();
+				}
+				if (deleteDownvotesOfPosts != null) {
+					deleteDownvotesOfPosts.close();
 				}
 				if (deleteCommentsOfPost != null) {
 					deleteCommentsOfPost.close();
@@ -280,7 +269,7 @@ public class UserDAO {
 				if (deleteUser != null) {
 					deleteUser.close();
 				}
-				DBManager.getInstance().getConnection().setAutoCommit(false);
+				DBManager.getInstance().getConnection().setAutoCommit(true);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
