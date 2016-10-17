@@ -555,7 +555,9 @@ function showMesage(results){
 		}, 1000)
 	}else if (results == 'usernameTaken'){
 		$('#message2').html("<font size = '3'color='#c62115'>Username already taken</b></font>");
-	}else{
+	} else if (results == 'emailTaken'){
+		$('#message2').html("<font size = '3'color='#c62115'>User with such email already exists</b></font>");
+	} else{
 		$('#message2').html("<font size = '3'color='#c62115'><b>Passwords don't match</b></font>")
 	}
 }
