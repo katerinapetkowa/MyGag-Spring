@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.MultipartConfig;
@@ -22,6 +23,10 @@ import com.myGag.model.UsersManager;
 @RestController
 @MultipartConfig(maxFileSize = 200000000)
 public class ValidateController {
+	
+	private static final String NAME_PATTERN = "[a-zA-Z. ]+";
+	private static final String EMAIL_PATTERN = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9]+.[a-z.]+$";
+	private static final String USERNAME_PATTERN = "^[A-Za-z0-9]+(?:[._-][A-Za-z0-9]+)*$";
 
 	@RequestMapping(value = "/loginValidate", method = RequestMethod.POST)
 	public String loginValidate(@RequestParam("username") String username, @RequestParam("password") String password,
@@ -47,7 +52,7 @@ public class ValidateController {
 			@RequestParam("password2") String password2,@RequestParam("profilePicture") MultipartFile profilePicture,
 			HttpSession session, HttpServletResponse response) {
 
-		String msg;
+		String msg = "";
 		if (UsersManager.getInstance().getAllUsers().containsKey(username)) {
 			msg = "usernameTaken";
 		} else if(!UsersManager.getInstance().validEmail(email)){
@@ -55,29 +60,33 @@ public class ValidateController {
 		} else if (!password.equals(password2)) {
 			msg = "passwordsDontMatch";
 		} else {
-			File dir = new File("D:\\MyGagPictures\\userProfilePics");
-			if (!dir.exists()) {
-				dir.mkdirs();
-			}
-			InputStream profilePicStream = null;
-			try {
-				profilePicStream = profilePicture.getInputStream();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			File profilePicFile = new File(dir, username + "-profile-pic." + profilePicture.getContentType().split("/")[1]);
-			System.out.println("Try to save file with name: " + profilePicFile.getName());
-			System.out.println("abs. path = " + profilePicFile.getAbsolutePath());
-			try {
-				Files.copy(profilePicStream, profilePicFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			String encryptedPassword = UsersManager.getInstance().passwordToMD5(password2);
-			UsersManager.getInstance().registerUser(username, name, encryptedPassword, email, profilePicFile.getName());
-			msg = "success";
+			
+			if(username != null && name != null && email != null && password != null && 
+					email.matches(EMAIL_PATTERN) && name.matches(NAME_PATTERN) && username.matches(USERNAME_PATTERN)){
+				File dir = new File("D:\\MyGagPictures\\userProfilePics");
+				if (!dir.exists()) {
+					dir.mkdirs();
+				}
+				InputStream profilePicStream = null;
+				try {
+					profilePicStream = profilePicture.getInputStream();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				File profilePicFile = new File(dir, username + "-profile-pic." + profilePicture.getContentType().split("/")[1]);
+				System.out.println("Try to save file with name: " + profilePicFile.getName());
+				System.out.println("abs. path = " + profilePicFile.getAbsolutePath());
+				try {
+					Files.copy(profilePicStream, profilePicFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				String encryptedPassword = UsersManager.getInstance().passwordToMD5(password2);
+				UsersManager.getInstance().registerUser(username, name, encryptedPassword, email, profilePicFile.getName());
+				msg = "success";
+			} 
 		}
 		return msg;
 	}

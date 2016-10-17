@@ -26,8 +26,9 @@ import com.myGag.model.UsersManager;
 public class UserController {
 	
 	
-	private static final String NAME_PATTERN = "^[A-Za-z]+$";
+	private static final String NAME_PATTERN = "[a-zA-Z. ]+";
 	private static final String EMAIL_PATTERN = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9]+.[a-z.]+$";
+	private static final String USERNAME_PATTERN = "^[A-Za-z0-9]+(?:[._-][A-Za-z0-9]+)*$";
 
 
 	@RequestMapping(value = "/logOut", method = RequestMethod.POST)
@@ -57,6 +58,8 @@ public class UserController {
 			HttpServletRequest request) throws IOException{
 		String username = session.getAttribute("loggedAs").toString();
 		String description = StringEscapeUtils.escapeHtml4(request.getParameter("description"));
+		
+		
 		if(!profilePicture.getContentType().split("/")[1].equals("octet-stream")){
 		InputStream profilePicStream = null;
 		try {
@@ -75,8 +78,13 @@ public class UserController {
 		Files.copy(profilePicStream, profilePicFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
 		UsersManager.getInstance().changeProfilePicture(username, profilePicFile.getName());
 	}
-		UsersManager.getInstance().changeProfile(username, name, email, description);
-		return "Settings";
+		if(username != null && name != null && email != null && 
+				email.matches(EMAIL_PATTERN) && name.matches(NAME_PATTERN) && username.matches(USERNAME_PATTERN)){
+			UsersManager.getInstance().changeProfile(username, name, email, description);
+			
+		}
+			return "Settings";
+		
 	}
 	
 	
