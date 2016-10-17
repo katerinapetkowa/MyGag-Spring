@@ -65,7 +65,7 @@ public class PostController {
 			PostsManager.getInstance().upVotePost(logged, Integer.parseInt(postId));
 			return "DetailsPost";
 		} else {
-			return "DetailsPost";
+			return "DetailsPostWhenNotLogged";
 		}
 	}
 
@@ -80,7 +80,7 @@ public class PostController {
 			PostsManager.getInstance().downVotePost(logged, Integer.parseInt(postId));
 			return "DetailsPost";
 		}else{
-			return "DetailsPost";
+			return "DetailsPostWhenNotLogged";
 		}
 	}
 
