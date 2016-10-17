@@ -140,7 +140,7 @@
 			<script src="js/forms.js"></script>
 			<div class="tab-content">
 
-				<form id="registerForm" class="signup" action="register"
+				<form id="registerForm" class="signup" accept = "image/*" onsubmit="return Validate(this)" action="javascript:validateRegister()"
 					enctype="multipart/form-data">
 					<!--         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span> -->
 
@@ -224,7 +224,7 @@
 
 			<div class="tab-content">
 
-				<form action="createpost" method="post"
+				<form action="createpost" accept = "image/*" onsubmit="return Validate(this)" method="post"
 					enctype="multipart/form-data">
 					<!--         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span> -->
 
@@ -476,7 +476,36 @@ $(document).ready(function(){
 });
 
 </script>
+<script>
+				var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];    
+				function Validate(oForm) {
+				    var arrInputs = oForm.getElementsByTagName("input");
+				    for (var i = 0; i < arrInputs.length; i++) {
+				        var oInput = arrInputs[i];
+				        if (oInput.type == "file") {
+				            var sFileName = oInput.value;
+				            if (sFileName.length > 0) {
+				                var blnValid = false;
+				                for (var j = 0; j < _validFileExtensions.length; j++) {
+				                    var sCurExtension = _validFileExtensions[j];
+				                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+				                        blnValid = true;
+				                        break;
+				                    }
+				                }
+				                
+				                if (!blnValid) {
+				                    alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+				                    return false;
+				                }
+				            }
+				        }
+				    }
+				  
+				    return true;
+				}
 
+</script>
 	<script>
 
 $(document).ready(function(){
@@ -504,14 +533,14 @@ function validateRegister(){
 
 function showMesage(results){
 	if(results == 'success'){
-		$('#message2').html("<font color='green'>You registerred successfully</font>");
+		$('#message2').html("<font size = '3' color='#179b77'><b>You registerred successfully</b></font>");
 		setTimeout(function(){
 			window.location.href = "index";
 		}, 1000)
 	}else if (results == 'usernameTaken'){
-		$('#message2').html("<font color='red'>Username already taken</font>");
+		$('#message2').html("<font size = '3' color='#c62115'><b>Username already taken</b></font>");
 	}else{
-		$('#message2').html("<font color='red'>Passwords don't match</font>")
+		$('#message2').html("<font size = '3' color='#c62115'><b>Passwords don't match</b></font>")
 	}
 }
 </script>

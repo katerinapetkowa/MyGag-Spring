@@ -138,7 +138,7 @@
 			<script src="js/forms.js"></script>
 			<div class="tab-content">
 
-				<form id="registerForm" class="signup"
+				<form id="registerForm" class="signup" accept = "image/*" onsubmit="return Validate(this)"
 					action="javascript:validateRegister()"
 					enctype="multipart/form-data">
 					<!--         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span> -->
@@ -198,8 +198,8 @@
 
 					<div class="field-wrap">
 
-						<input type="file" id="fileMaina" name="profilePicture"
-							accept="image/*" onfocus="this.style.borderColor = '#1ab188'"
+						<input type="file" accept = "image/*" id="fileMaina" name="profilePicture"
+							 onfocus="this.style.borderColor = '#1ab188'"
 							onfocusout="this.style.borderColor = '#a0b3b0' "
 							style="font-size: 22px; display: block; width: 100%; height: 45px; padding: 5px 10px; background: none; color: #ffffff; border-radius: 0; background-image: none; border: 1px solid #a0b3b0;"
 							required autocomplete="off" />
@@ -231,7 +231,7 @@
 
 			<div class="tab-content">
 
-				<form action="createpost" method="post"
+				<form accept="image/*" onsubmit="return Validate(this)" action="createpost" method="post"
 					enctype="multipart/form-data">
 					<!--         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span> -->
 
@@ -451,33 +451,63 @@
 		</div>
 
 		<script>
-//  var modal = document.getElementById('id01');
-
-// modal.addEventListener('window.onclick', function(event){
-	
-// 	modal.style.display = 'none';
-// }); 
-//Closing the log in modal box
-
-$(document).ready(function(){
-    $("#myBtn").click(function(){
-        $("#myModal").modal();
-    });
-});
-
-
-
-</script>
+			//  var modal = document.getElementById('id01');
+			
+			// modal.addEventListener('window.onclick', function(event){
+				
+			// 	modal.style.display = 'none';
+			// }); 
+			//Closing the log in modal box
+			
+			$(document).ready(function(){
+			    $("#myBtn").click(function(){
+			        $("#myModal").modal();
+			    });
+			});
+			
+			
+			
+			</script>
+			
+					<script>
+			
+			$(document).ready(function(){
+			    $("#upload").click(function(){
+			        $("#id03").modal();
+			    });
+			});
+			</script>
 
 		<script>
+				var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];    
+				function Validate(oForm) {
+				    var arrInputs = oForm.getElementsByTagName("input");
+				    for (var i = 0; i < arrInputs.length; i++) {
+				        var oInput = arrInputs[i];
+				        if (oInput.type == "file") {
+				            var sFileName = oInput.value;
+				            if (sFileName.length > 0) {
+				                var blnValid = false;
+				                for (var j = 0; j < _validFileExtensions.length; j++) {
+				                    var sCurExtension = _validFileExtensions[j];
+				                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+				                        blnValid = true;
+				                        break;
+				                    }
+				                }
+				                
+				                if (!blnValid) {
+				                    alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+				                    return false;
+				                }
+				            }
+				        }
+				    }
+				  
+				    return true;
+				}
 
-$(document).ready(function(){
-    $("#upload").click(function(){
-        $("#id03").modal();
-    });
-});
 </script>
-
 		<script>
 // //Get the modal
 // var modal2 = document.getElementById('id02');
@@ -517,14 +547,14 @@ function validateRegister(){
 
 function showMesage(results){
 	if(results == 'success'){
-		$('#message2').html("<font color='green'>You registerred successfully</font>");
+		$('#message2').html("<font size = '3' color='#179b77'><b>You registerred successfully</b></font>");
 		setTimeout(function(){
 			window.location.href = "index";
 		}, 1000)
 	}else if (results == 'usernameTaken'){
-		$('#message2').html("<font color='red'>Username already taken</font>");
+		$('#message2').html("<font size = '3'color='#c62115'>Username already taken</b></font>");
 	}else{
-		$('#message2').html("<font color='red'>Passwords don't match</font>")
+		$('#message2').html("<font size = '3'color='#c62115'><b>Passwords don't match</b></font>")
 	}
 }
 

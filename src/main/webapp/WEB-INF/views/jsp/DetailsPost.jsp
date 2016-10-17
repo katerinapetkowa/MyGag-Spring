@@ -131,7 +131,7 @@
 
 			<div class="tab-content">
 
-				<form action="createpost" method="post"
+				<form action="createpost" accept = "image/*" onsubmit="return Validate(this)" method="post"
 					enctype="multipart/form-data">
 					<!--         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span> -->
 
@@ -490,6 +490,46 @@
 							$("#id03").modal();
 						});
 					});
+				</script>
+
+				<script>
+					var _validFileExtensions = [ ".jpg", ".jpeg", ".bmp",
+							".gif", ".png" ];
+					function Validate(oForm) {
+						var arrInputs = oForm.getElementsByTagName("input");
+						for (var i = 0; i < arrInputs.length; i++) {
+							var oInput = arrInputs[i];
+							if (oInput.type == "file") {
+								var sFileName = oInput.value;
+								if (sFileName.length > 0) {
+									var blnValid = false;
+									for (var j = 0; j < _validFileExtensions.length; j++) {
+										var sCurExtension = _validFileExtensions[j];
+										if (sFileName.substr(
+												sFileName.length
+														- sCurExtension.length,
+												sCurExtension.length)
+												.toLowerCase() == sCurExtension
+												.toLowerCase()) {
+											blnValid = true;
+											break;
+										}
+									}
+
+									if (!blnValid) {
+										alert("Sorry, "
+												+ sFileName
+												+ " is invalid, allowed extensions are: "
+												+ _validFileExtensions
+														.join(", "));
+										return false;
+									}
+								}
+							}
+						}
+
+						return true;
+					}
 				</script>
 
 				<!-- Footer -->
