@@ -7,6 +7,18 @@ PRIMARY KEY (category_id)
 );
 
 USE 9gag;
+INSERT INTO categories (category_name) VALUES ('Funny');
+
+USE 9gag;
+INSERT INTO categories (category_name) VALUES ('Food');
+
+USE 9gag;
+INSERT INTO categories (category_name) VALUES ('MovieTV');
+
+USE 9gag;
+INSERT INTO categories (category_name) VALUES ('Sport');
+
+USE 9gag;
 CREATE TABLE users (
 username VARCHAR(30) NOT NULL,
 name VARCHAR(50) NOT NULL,
