@@ -340,7 +340,7 @@
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 
-				<li><a href="hotposts">Hot</a></li>
+				<li><a href="hotposts" style="color:white">Hot</a></li>
 
 				<li><a href="freshposts">Fresh</a></li>
 

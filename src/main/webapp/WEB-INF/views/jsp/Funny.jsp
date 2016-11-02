@@ -270,7 +270,7 @@
 
 						<select name="category">
 
-							<option value="Funny">Funny</option>
+							<option value="Funny" >Funny</option>
 							<option value="MovieTV">MovieTV</option>
 							<option value="Sport">Sport</option>
 							<option value="Food">Food</option>
@@ -332,7 +332,7 @@
 
 				<li><a href="freshposts">Fresh</a></li>
 
-				<li><a href="funnyposts">Funny</a></li>
+				<li><a href="funnyposts" style="color:white">Funny</a></li>
 				<li><a href="movieTVposts">MovieTV</a></li>
 				<li><a href="sportposts">Sport</a></li>
 				<li><a href="foodposts">Food</a></li>

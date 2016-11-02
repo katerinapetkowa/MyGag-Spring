@@ -335,8 +335,8 @@
 
 				<li><a href="funnyposts">Funny</a></li>
 				<li><a href="movieTVposts">MovieTV</a></li>
-				<li><a href="sportposts">Sport</a></li>
-				<li><a href="foodposts">Food</a></li>
+				<li><a href="sportposts" style="color:white">Sport</a></li>
+				<li><a href="foodposts" >Food</a></li>
 				<c:choose>
 					<c:when test="${sessionScope.loggedAs != null}">
 						<li>

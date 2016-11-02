@@ -331,7 +331,7 @@
 
 				<li><a href="hotposts">Hot</a></li>
 
-				<li><a href="freshposts">Fresh</a></li>
+				<li><a href="freshposts" style="color:white">Fresh</a></li>
 
 				<li><a href="funnyposts">Funny</a></li>
 				<li><a href="movieTVposts">MovieTV</a></li>

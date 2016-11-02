@@ -334,7 +334,7 @@
 				<li><a href="freshposts">Fresh</a></li>
 
 				<li><a href="funnyposts">Funny</a></li>
-				<li><a href="movieTVposts">MovieTV</a></li>
+				<li><a href="movieTVposts"style="color:white">MovieTV</a></li>
 				<li><a href="sportposts">Sport</a></li>
 				<li><a href="foodposts">Food</a></li>
 				<c:choose>

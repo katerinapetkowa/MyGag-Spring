@@ -281,7 +281,7 @@
 							<option value="Funny">Funny</option>
 							<option value="MovieTV">MovieTV</option>
 							<option value="Sport">Sport</option>
-							<option value="Food">Food</option>
+							<option value="Food" >Food</option>
 						</select>
 
 					</div>
@@ -343,7 +343,7 @@
 				<li><a href="funnyposts">Funny</a></li>
 				<li><a href="movieTVposts">MovieTV</a></li>
 				<li><a href="sportposts">Sport</a></li>
-				<li><a href="foodposts">Food</a></li>
+				<li><a href="foodposts" style="color:white">Food</a></li>
 				<c:choose>
 					<c:when test="${sessionScope.loggedAs != null}">
 						<li>

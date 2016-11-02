@@ -414,7 +414,7 @@ function action2()
 								<small><c:out value="${comment.uploadDate}"></c:out></small>
 							</h4>
 
-							<c:out value="${comment.text}"></c:out>
+							<h5 style = "margin-left: 1.8cm" ><c:out value="${comment.text}"></c:out></h5>
 						</div>
 					</div>
 
